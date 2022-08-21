@@ -75,7 +75,7 @@
                                     <span class="h2 font-weight-bold mb-0">@lang('$') 490,65</span>
                                 </div>
                                 <div class="col-auto">
-                                    <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                                    <div class="icon icon-shape bg-success text-white rounded-circle shadow">
                                         <i class="fas fa-comment-dollar"></i>
                                     </div>
                                 </div>
