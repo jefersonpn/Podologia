@@ -126,10 +126,17 @@
                         <i class="ni ni-circle-08 text-pink"></i> {{ __('Register') }}
                     </a>
                 </li>
-                <li class="nav-item mb-5 mr-4 ml-4 pl-1 bg-danger" style="position: absolute; bottom: 0;">
-                    <a class="nav-link text-white" href="https://www.creative-tim.com/product/argon-dashboard-pro-laravel" target="_blank">
-                        <i class="ni ni-cloud-download-95"></i> Upgrade to PRO
-                    </a>
+                <li class="nav-item mb-2 mr-4 ml-3 pl-1">
+                    <button class="btn btn-icon btn-3 btn-success" type="button">
+                        <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
+                        <span class="btn-inner--text">@lang('New Appointment')</span>
+                    </button>
+                </li>
+                <li class="nav-item mb-2 mr-4 ml-3 pl-1">
+                    <button class="btn btn-icon btn-3 btn-info" type="button">
+                        <span class="btn-inner--icon"><i class="ni ni-calendar-grid-58"></i></span>
+                        <span class="btn-inner--text">@lang('Calendar')</span>
+                    </button>
                 </li>
             </ul>
             <!-- Divider -->
