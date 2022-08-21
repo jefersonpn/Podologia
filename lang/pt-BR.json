@@ -139,7 +139,7 @@
     "Contact Us": "Contato",
     "Username:": "Usuário:",
     "Password:": "Senha:",
-    "Service": "Atendimentos",
+    "Services": "Atendimentos",
     "Since last month": "Desde o último mês",
     "New pacient": "Novos pacientes",
     "Since last week": "Desde a semana passada",
@@ -154,5 +154,12 @@
     "Week": "Semana",
     "W": "S",
     "New Appointment": "Nova Consulta",
-    "Calendar":  "Agenda"
+    "Calendar":  "Agenda",
+    "Repots": "Relatórios",
+    "Hello": "Olá",
+    "This is your profile page. You can see update your details and manage your account": "Esta é a página do seu perfil. Você pode ver atualizar seus dados e gerenciar sua conta",
+    "Message": "Mensagens",
+    "Conquests": "Conquistas",
+    "Pacients": "Pacientes",
+    "Comments": "Comentários"
 }

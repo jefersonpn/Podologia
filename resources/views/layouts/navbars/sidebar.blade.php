@@ -84,21 +84,23 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
-                        <i class="fab fa-laravel" style="color: #f4645f;"></i>
-                        <span class="nav-link-text" style="color: #f4645f;">{{ __('Laravel Examples') }}</span>
+                    <a class="nav-link" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples">
+                        <i class="ni ni-chart-pie-35" style="color: #f4645f;"></i>
+                        <span class="nav-link-text">@lang('Repots')</span>
                     </a>
 
-                    <div class="collapse show" id="navbar-examples">
+                    <div class="collapse" id="navbar-examples">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('profile.edit') }}">
-                                    {{ __('User profile') }}
+                                    <i class="ni ni-single-copy-04" style="color: #f4645f;"></i>
+                                    @lang('Services')
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('user.index') }}">
-                                    {{ __('User Management') }}
+                                    <i class="ni ni-single-copy-04" style="color: #f4645f;"></i>
+                                    @lang('New pacient')
                                 </a>
                             </li>
                         </ul>
@@ -121,18 +123,14 @@
                       <span class="nav-link-text">Tables</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Register') }}
-                    </a>
-                </li>
-                <li class="nav-item mb-2 mr-4 ml-3 pl-1">
+                
+                <li class="nav-item mb-2 mr-4 ml-3 pl-2">
                     <button class="btn btn-icon btn-3 btn-success" type="button">
                         <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
                         <span class="btn-inner--text">@lang('New Appointment')</span>
                     </button>
                 </li>
-                <li class="nav-item mb-2 mr-4 ml-3 pl-1">
+                <li class="nav-item mb-2 mr-4 ml-3 pl-2">
                     <button class="btn btn-icon btn-3 btn-info" type="button">
                         <span class="btn-inner--icon"><i class="ni ni-calendar-grid-58"></i></span>
                         <span class="btn-inner--text">@lang('Calendar')</span>
