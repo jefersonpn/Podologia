@@ -139,6 +139,8 @@
     "Contact Us": "Contato",
     "Username:": "Usuário:",
     "Password:": "Senha:",
+    "Confirm New Password": "Confirmação da Nova Nenha",
+    "Change password": "Trocar Senha",
     "Services": "Atendimentos",
     "Since last month": "Desde o último mês",
     "New pacient": "Novos pacientes",
@@ -161,5 +163,20 @@
     "Message": "Mensagens",
     "Conquests": "Conquistas",
     "Pacients": "Pacientes",
-    "Comments": "Comentários"
+    "Comments": "Comentários",
+    "Activity": "Agenda",
+    "Support": "Ajuda",
+    "Welcome!": "Bem Vindo!",
+    "My profile": "Meu Perfil",
+    "Settings": "Configurações",
+    "Edit Profile":  "Editar Perfil",
+    "User information": "Informações do usuário",
+    "Show more": "Ver mais",
+    "Documentation": "Documentação",
+    "Getting started": "Instruções Iniciais",
+    "Questions & Answers": "Perguntas e Respostas",
+    "Sugestions and Problems": "Sugestões e Problemas",
+    "Registration": "Cadastro",
+    "Pathology": "Patologia"
+
 }

@@ -106,8 +106,36 @@
                         </ul>
                     </div>
                 </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home') }}">
+                        <i class="ni ni-single-02 text-primary"></i> @lang('Pacients')
+                    </a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="#navbar-register" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-register">
+                        <i class="ni ni-tag" style="color: #172b4d;"></i>
+                        <span class="nav-link-text">@lang('Registration')</span>
+                    </a>
 
-                <li class="nav-item">
+                    <div class="collapse" id="navbar-register">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('profile.edit') }}">
+                                    <i class="ni ni-tag" style="color: #172b4d;"></i>
+                                    @lang('Pathology')
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('user.index') }}">
+                                    <i class="ni ni-tag" style="color: #172b4d;"></i>
+                                    @lang('New pacient')
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ route('icons') }}">
                         <i class="ni ni-planet text-blue"></i> {{ __('Icons') }}
                     </a>
@@ -122,9 +150,13 @@
                       <i class="ni ni-bullet-list-67 text-default"></i>
                       <span class="nav-link-text">Tables</span>
                     </a>
-                </li>
+                </li> --}}
+            </ul>
+
+                <hr class="my-3">
                 
-                <li class="nav-item mb-2 mr-4 ml-3 pl-2">
+            <ul class="navbar-nav">    
+                <li class="nav-item mb-2 mr-4 ml-3 pl-2 pt-2">
                     <button class="btn btn-icon btn-3 btn-success" type="button">
                         <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
                         <span class="btn-inner--text">@lang('New Appointment')</span>
@@ -140,22 +172,22 @@
             <!-- Divider -->
             <hr class="my-3">
             <!-- Heading -->
-            <h6 class="navbar-heading text-muted">Documentation</h6>
+            <h6 class="navbar-heading text-muted">@lang('Documentation')</h6>
             <!-- Navigation -->
             <ul class="navbar-nav mb-md-3">
                 <li class="nav-item">
                     <a class="nav-link" href="https://argon-dashboard-laravel.creative-tim.com/docs/getting-started/overview.html">
-                        <i class="ni ni-spaceship"></i> Getting started
+                        <i class="ni ni-spaceship"></i> @lang('Getting started')
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://argon-dashboard-laravel.creative-tim.com/docs/foundation/colors.html">
-                        <i class="ni ni-palette"></i> Foundation
+                        <i class="ni ni-palette"></i> @lang('Questions & Answers')
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://argon-dashboard-laravel.creative-tim.com/docs/components/alerts.html">
-                        <i class="ni ni-ui-04"></i> Components
+                        <i class="ni ni-ui-04"></i> @lang('Sugestions and Problems')
                     </a>
                 </li>
             </ul>
