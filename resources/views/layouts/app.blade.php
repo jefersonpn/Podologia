@@ -33,13 +33,20 @@
         @endauth
         
         <div class="main-content">
+            @if(isset($link) and ($link == '1'))
+            @include('layouts.navbars.navs.registers')
+            @yield('content')
+            @else
             @include('layouts.navbars.navbar')
             @yield('content')
+            @endif
         </div>
 
         @guest()
             @include('layouts.footers.guest')
         @endguest
+
+        
 
         <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
         <script src="{{ asset('argon') }}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

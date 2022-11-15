@@ -177,6 +177,16 @@
     "Questions & Answers": "Perguntas e Respostas",
     "Sugestions and Problems": "Sugestões e Problemas",
     "Registration": "Cadastro",
-    "Pathology": "Patologia"
+    "Pathology": "Patologia",
+    "Pathologys": "Patologias",
+    "Patology Register": "Cadastro de Patologia",
+    "Pathology information": "Informações da Patologia",
+    "Description": "Descrição",
+    "Pathology Description": "Descrição da Patologia",
+    "Treatment Description": "Descrição do Tratamento",
+    "Treatment": "Tratamento",
+    "Image": "Imagem",
+    "Topical Medications": "Medicações Tópicas"
+
 
 }

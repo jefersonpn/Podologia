@@ -113,21 +113,21 @@
                 </li>
                  <li class="nav-item">
                     <a class="nav-link" href="#navbar-register" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-register">
-                        <i class="ni ni-tag" style="color: #172b4d;"></i>
+                        <i class="ni ni-zoom-split-in" style="color: #46c54d;"></i>
                         <span class="nav-link-text">@lang('Registration')</span>
                     </a>
 
                     <div class="collapse" id="navbar-register">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('profile.edit') }}">
-                                    <i class="ni ni-tag" style="color: #172b4d;"></i>
+                                <a class="nav-link" href="{{ route('patology.create') }}">
+                                    <i class="ni ni-zoom-split-in" style="color: #46c54d;"></i>
                                     @lang('Pathology')
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('user.index') }}">
-                                    <i class="ni ni-tag" style="color: #172b4d;"></i>
+                                    <i class="ni ni-zoom-split-in" style="color: #46c54d;"></i>
                                     @lang('New pacient')
                                 </a>
                             </li>
