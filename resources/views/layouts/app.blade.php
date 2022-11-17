@@ -33,9 +33,19 @@
         @endauth
         
         <div class="main-content">
-            @if(isset($link) and ($link == '1'))
-            @include('layouts.navbars.navs.registers')
-            @yield('content')
+            
+            @if(isset($header) )
+                @switch($header)
+                    @case(1)
+                        @include('layouts.navbars.navs.registers')
+                        @yield('content')
+                        @break
+                    @case(2)
+                        @include('layouts.navbars.navs.registers')
+                        @yield('content')
+                        @break
+                        
+                @endswitch
             @else
             @include('layouts.navbars.navbar')
             @yield('content')

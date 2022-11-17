@@ -186,7 +186,23 @@
     "Treatment Description": "Descrição do Tratamento",
     "Treatment": "Tratamento",
     "Image": "Imagem",
-    "Topical Medications": "Medicações Tópicas"
+    "Topical Medications": "Medicações Tópicas",
+    "Care and Orientation": "Orientações e Cuidados",
+    "Pacient": "Paciente",
+    "Products":  "Produtos",
+    "Product": "Produto",
+    "Service": "Serviço",
+    "Finacial": "Financeiro",
+    "Pacient information": "Informações do paciente",
+    "Pacient Register": "Cadostro de Pacientes",
+    "Lasts Registered": "Ultimos Cadastrados",
+    "Catalog":  "Catalogo",
+    "Surname": "Sobrenome",
+    "Date of Brith":  "Data de Nascimento",
+    "Select": "Selecione",
+    "State": "Estado",
+    "City": "Cidade",
+    "Anamnesis Form": "Ficha de Anamnese"
 
 
 }

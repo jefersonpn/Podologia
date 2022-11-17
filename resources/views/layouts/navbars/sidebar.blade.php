@@ -84,8 +84,17 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('user.index') }}">
+                        <i class="ni ni-money-coins text-success"></i>
+                        @lang('Finacial')
+                    </a>
+                </li>
+            </ul>    
+            <hr class="my-2">
+            <ul class="navbar-nav">
+                <li class="nav-item">
                     <a class="nav-link" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples">
-                        <i class="ni ni-chart-pie-35" style="color: #f4645f;"></i>
+                        <i class="ni ni-chart-pie-35 text-danger"></i>
                         <span class="nav-link-text">@lang('Repots')</span>
                     </a>
 
@@ -93,27 +102,45 @@
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('profile.edit') }}">
-                                    <i class="ni ni-single-copy-04" style="color: #f4645f;"></i>
+                                    <i class="ni ni-single-copy-04 text-danger"></i>
                                     @lang('Services')
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('user.index') }}">
-                                    <i class="ni ni-single-copy-04" style="color: #f4645f;"></i>
+                                    <i class="ni ni-single-copy-04 text-danger"></i>
                                     @lang('New pacient')
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
-                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">
-                        <i class="ni ni-single-02 text-primary"></i> @lang('Pacients')
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('patology.index') }}">
+                        <i class="ni ni-atom text-primary"></i> @lang('Pathologys')
                     </a>
                 </li>
                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('pacient.index') }}">
+                        <i class="ni ni-single-02 text-primary"></i> @lang('Pacients')
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home') }}">
+                        <i class="ni ni-cart text-info"></i> @lang('Products')
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home') }}">
+                        <i class="ni ni-briefcase-24 text-dark"></i> @lang('Service')
+                    </a>
+                </li>
+                 </ul>    
+                <hr class="my-2">
+                <ul class="navbar-nav">
+                 <li class="nav-item">
                     <a class="nav-link" href="#navbar-register" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-register">
-                        <i class="ni ni-zoom-split-in" style="color: #46c54d;"></i>
+                        <i class="ni ni-zoom-split-in text-success"></i>
                         <span class="nav-link-text">@lang('Registration')</span>
                     </a>
 
@@ -121,14 +148,26 @@
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('patology.create') }}">
-                                    <i class="ni ni-zoom-split-in" style="color: #46c54d;"></i>
+                                    <i class="ni ni-zoom-split-in text-success"></i>
                                     @lang('Pathology')
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ route('pacient.create') }}">
+                                    <i class="ni ni-zoom-split-in text-success"></i>
+                                    @lang('Pacient')
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('user.index') }}">
-                                    <i class="ni ni-zoom-split-in" style="color: #46c54d;"></i>
-                                    @lang('New pacient')
+                                    <i class="ni ni-zoom-split-in text-success"></i>
+                                    @lang('Product')
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('user.index') }}">
+                                    <i class="ni ni-zoom-split-in text-success"></i>
+                                    @lang('Service')
                                 </a>
                             </li>
                         </ul>
@@ -153,7 +192,7 @@
                 </li> --}}
             </ul>
 
-                <hr class="my-3">
+            <hr class="my-3">
                 
             <ul class="navbar-nav">    
                 <li class="nav-item mb-2 mr-4 ml-3 pl-2 pt-2">

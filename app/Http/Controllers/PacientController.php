@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PatologyController extends Controller
+class PacientController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class PatologyController extends Controller
     public function index()
     {
         //
-        return view('pages.patology.index', ['header' => 1]);
+        return view('pages.pacient.index', ['header' => 2]);
     }
 
     /**
@@ -25,7 +25,7 @@ class PatologyController extends Controller
     public function create()
     {
         //
-        return view('pages.patology.create', ['header' => 1]);
+        return view('pages.pacient.create', ['header' => 2]);
     }
 
     /**
