@@ -91,15 +91,15 @@
                                     </div>
                                 </div>
                                 <div class="row">
+                                    {{-- @dd($estados) --}}
                                     <div class="col-6 form-group{{ $errors->has('state') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-state">@lang('State')</label>
                                         <select name="state" id="input-state"class="form-control form-control-alternative{{ $errors->has('state') ? ' is-invalid' : '' }}" required>
                                             <option value="">@lang('Select')</option>
-                                            <option value="AC">Acre</option>
-                                            <option value="AL">Alagoas</option>
-                                            <option value="AP">Amapá</option>
-                                            <option value="AM">Amazonas</option>
-                                            <option value="BA">Bahia</option>
+                                       {{-- Retrieving data from collection --}}
+                                            @foreach($estados as $estado)
+                                            <option value="{{$estado->id}}">{{$estado->nome}}</option>
+                                        @endforeach
                                             </select>
 
                                         @if ($errors->has('state'))
@@ -112,11 +112,6 @@
                                         <label class="form-control-label" for="input-city">@lang('City')</label>
                                         <select name="city" id="input-city"class="form-control form-control-alternative{{ $errors->has('city') ? ' is-invalid' : '' }}" required>
                                             <option value="">@lang('Select')</option>
-                                            <option value="Acrelândia">Acrelândia</option>
-                                            <option value="Assis Brasil">Assis Brasil</option>
-                                            <option value="Brasiléia">Brasiléia</option>
-                                            <option value="Bujari">Bujari</option>
-                                            <option value="Capixaba">Capixaba</option>
                                             </select>
 
                                         @if ($errors->has('city'))

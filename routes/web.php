@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CidadeController;
 use App\Http\Controllers\PacientController;
 use App\Http\Controllers\PatologyController;
+
 
 
 
@@ -29,6 +31,7 @@ Auth::routes();
 Route::resource('patology', PatologyController::class);
 
 Route::resource('pacient', PacientController::class);
+Route::get('pega_cidade', [CidadeController::class, 'show']);
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 

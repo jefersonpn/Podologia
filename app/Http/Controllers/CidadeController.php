@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Estado;
+use App\Models\Cidade;
 use Illuminate\Http\Request;
 
-class PacientController extends Controller
+class CidadeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,6 @@ class PacientController extends Controller
     public function index()
     {
         //
-            
-        return view('pages.pacient.index', ['header' => 2]);
     }
 
     /**
@@ -27,9 +25,6 @@ class PacientController extends Controller
     public function create()
     {
         //
-        $estados = Estado::all();
-        //dd($estados);
-        return view('pages.pacient.create', ['header' => 2, 'estados' => $estados]);
     }
 
     /**
@@ -46,21 +41,24 @@ class PacientController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Cidade  $cidade
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Cidade $cidade)
     {
         //
+        $cidades = Cidade::where('id_estado', $cidade)->get();
+        //dd($cidades);
+        return view('pages.pacient.create', ['header' => 2, 'cidades' => $cidades]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Cidade  $cidade
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Cidade $cidade)
     {
         //
     }
@@ -69,10 +67,10 @@ class PacientController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Cidade  $cidade
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Cidade $cidade)
     {
         //
     }
@@ -80,10 +78,10 @@ class PacientController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Cidade  $cidade
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Cidade $cidade)
     {
         //
     }

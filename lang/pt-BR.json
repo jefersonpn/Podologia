@@ -202,7 +202,9 @@
     "Select": "Selecione",
     "State": "Estado",
     "City": "Cidade",
-    "Anamnesis Form": "Ficha de Anamnese"
+    "Anamnesis Form": "Ficha de Anamnese",
+    "Loading...": "Carregando...",
+    "Loading error!": "Erro ao carregar!"
 
 
 }
