@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CidadeController;
+use App\Http\Controllers\EstadoController;
 use App\Http\Controllers\PacientController;
 use App\Http\Controllers\PatologyController;
+
 
 
 
@@ -28,12 +30,37 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();
 
+
+
+
+
+// PATHOLOGY -----------------------------------------------//
 Route::resource('patology', PatologyController::class);
+// END PATHOLOGY -------------------------------------------//
 
+
+
+
+
+// PACIENT-----------------------------------------------------------//
 Route::resource('pacient', PacientController::class);
-Route::get('pega_cidade', [CidadeController::class, 'show']);
+// END PACIENT-------------------------------------------------------//
 
-Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
+
+
+
+// ESTADOS------------------------------------------------------------//
+Route::get('estados_show', [EstadoController::class, 'show']);
+// END ESTADOS--------------------------------------------------------//
+
+
+
+// CIDADES-----------------------------------------------------------------//
+Route::get('cidades_show/{id_estado}', [CidadeController::class, 'show']);
+// END CIDADES-------------------------------------------------------------//
+
+
+
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);

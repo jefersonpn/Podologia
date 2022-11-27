@@ -23,9 +23,10 @@
         {{-- <link type="text/css" href="{{ asset('assets') }}/css/style.css" rel="stylesheet"> --}} 
         <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css?v=').time()}}">
         <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-
     </head>
     <body class="{{ $class ?? '' }}">
+                
+
         @auth()
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
@@ -33,7 +34,7 @@
             @include('layouts.navbars.sidebar')
         @endauth
         
-        <div class="main-content">
+        <div  class="main-content">
             
             @if(isset($header) )
                 @switch($header)
@@ -66,5 +67,7 @@
         
         <!-- Argon JS -->
         <script src="{{ asset('argon') }}/js/argon.js?v=1.0.0"></script>
+        {{-- My Personal script --}}
+
     </body>
 </html>

@@ -44,12 +44,15 @@ class CidadeController extends Controller
      * @param  \App\Models\Cidade  $cidade
      * @return \Illuminate\Http\Response
      */
-    public function show(Cidade $cidade)
+    public function show($id_estado)
     {
         //
-        $cidades = Cidade::where('id_estado', $cidade)->get();
+        $cidades = Cidade::where('uf', $id_estado)->get();
+
         //dd($cidades);
-        return view('pages.pacient.create', ['header' => 2, 'cidades' => $cidades]);
+        return response()->json([
+            'cidades' => $cidades,
+        ]);    
     }
 
     /**

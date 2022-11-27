@@ -38,6 +38,8 @@
                         <i class="ni ni-support-16"></i>
                         <span>{{ __('Support') }}</span>
                     </a>
+                    
+                    
                     <div class="dropdown-divider"></div>
                     <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
@@ -81,6 +83,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('home') }}">
                         <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
+
                     </a>
                 </li>
                 <li class="nav-item">

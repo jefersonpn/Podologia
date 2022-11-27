@@ -47,6 +47,11 @@ class EstadoController extends Controller
     public function show(Estado $estado)
     {
         //
+        $estados =  Estado::all();
+        //dd($estados);
+        return response()->json([
+            'estados' => $estados,
+        ]);
     }
 
     /**

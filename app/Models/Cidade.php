@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Cidade extends Model
 {
     use HasFactory;
+
+    protected $table = 'cidades';
+    protected $primaryKey = 'id';
+
+    protected $fillable = 
+    [
+      'nome',
+      'uf',
+      'ibge'
+    ];
 }

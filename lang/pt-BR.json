@@ -204,7 +204,10 @@
     "City": "Cidade",
     "Anamnesis Form": "Ficha de Anamnese",
     "Loading...": "Carregando...",
-    "Loading error!": "Erro ao carregar!"
+    "Loading error!": "Erro ao carregar!",
+    "Phone": "Telefone",
+    "Address": "Endereço",
+    "Number": "Numero"
 
 
 }
