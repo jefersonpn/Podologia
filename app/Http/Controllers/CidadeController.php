@@ -47,7 +47,7 @@ class CidadeController extends Controller
     public function show($id_estado)
     {
         //
-        $cidades = Cidade::where('uf', $id_estado)->get();
+        $cidades = Cidade::where('id_estado', $id_estado)->get();
 
         //dd($cidades);
         return response()->json([

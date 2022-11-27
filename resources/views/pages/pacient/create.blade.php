@@ -117,7 +117,7 @@
                                                 {
                                                     e.preventDefault();
                                                     var id_estado = $(this).val();
-                                                    //console.log(id_estado);
+                                                    console.log(id_estado);
                                                     showCidades(); //Calling the function to display data.
                                                     /* Display the data table from the database */
                                                     function showCidades()
@@ -146,7 +146,7 @@
 
                                             </script>
                                             </select>
-                                            
+
                                             @if ($errors->has('city'))
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $errors -> first('city') }}</strong>
@@ -214,6 +214,13 @@
   
    
 @endsection
+
+
+
+
+
+
+
 
 
 
