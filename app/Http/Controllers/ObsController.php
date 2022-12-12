@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Sex;
-use App\Models\Estado;
-use App\Models\Pacient;
+use App\Models\Obs;
+use App\Models\Perfusao;
 use Illuminate\Http\Request;
 
-class PacientController extends Controller
+class ObsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +16,6 @@ class PacientController extends Controller
     public function index()
     {
         //
-        return view('pages.pacient.index', ['header' => 2]);
     }
 
     /**
@@ -28,18 +26,9 @@ class PacientController extends Controller
     public function create()
     {
         //
-        $estados = Estado::all();
-        $sexs = Sex::all();
-        $pacients = Pacient::all();
-
-        //dd($pacients);
-
-        return view('pages.pacient.create', [
-            'header' => 2,
-            'estados' => $estados,
-            'sexs' => $sexs,
-            'pacients' => $pacients,
-        ]);
+        $perfusoes = Perfusao::all();
+        
+        return view('pages.pacient.obs_prof.create',['perfusoes' => $perfusoes]);
     }
 
     /**
@@ -56,10 +45,10 @@ class PacientController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Obs  $obs
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Obs $obs)
     {
         //
     }
@@ -67,10 +56,10 @@ class PacientController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Obs  $obs
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Obs $obs)
     {
         //
     }
@@ -79,10 +68,10 @@ class PacientController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Obs  $obs
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Obs $obs)
     {
         //
     }
@@ -90,10 +79,10 @@ class PacientController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Obs  $obs
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Obs $obs)
     {
         //
     }

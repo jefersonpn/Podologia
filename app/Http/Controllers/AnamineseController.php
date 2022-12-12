@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Sex;
-use App\Models\Estado;
-use App\Models\Pacient;
+use App\Models\Anaminese;
+use App\Models\CivilState;
 use Illuminate\Http\Request;
 
-class PacientController extends Controller
+class AnamineseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +16,6 @@ class PacientController extends Controller
     public function index()
     {
         //
-        return view('pages.pacient.index', ['header' => 2]);
     }
 
     /**
@@ -27,19 +25,10 @@ class PacientController extends Controller
      */
     public function create()
     {
-        //
-        $estados = Estado::all();
-        $sexs = Sex::all();
-        $pacients = Pacient::all();
-
-        //dd($pacients);
-
-        return view('pages.pacient.create', [
-            'header' => 2,
-            'estados' => $estados,
-            'sexs' => $sexs,
-            'pacients' => $pacients,
-        ]);
+        //Show form page
+        $estados_civil = CivilState::all();
+       
+        return view('pages.pacient.anaminese.create', ['estados_civil' => $estados_civil]);
     }
 
     /**
@@ -56,10 +45,10 @@ class PacientController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Anaminese  $anaminese
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Anaminese $anaminese)
     {
         //
     }
@@ -67,10 +56,10 @@ class PacientController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Anaminese  $anaminese
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Anaminese $anaminese)
     {
         //
     }
@@ -79,10 +68,10 @@ class PacientController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Anaminese  $anaminese
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Anaminese $anaminese)
     {
         //
     }
@@ -90,10 +79,10 @@ class PacientController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Anaminese  $anaminese
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Anaminese $anaminese)
     {
         //
     }

@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Sex;
-use App\Models\Estado;
-use App\Models\Pacient;
+use App\Models\CivilState;
 use Illuminate\Http\Request;
 
-class PacientController extends Controller
+class CivilStateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +15,8 @@ class PacientController extends Controller
     public function index()
     {
         //
-        return view('pages.pacient.index', ['header' => 2]);
+       
+
     }
 
     /**
@@ -28,18 +27,6 @@ class PacientController extends Controller
     public function create()
     {
         //
-        $estados = Estado::all();
-        $sexs = Sex::all();
-        $pacients = Pacient::all();
-
-        //dd($pacients);
-
-        return view('pages.pacient.create', [
-            'header' => 2,
-            'estados' => $estados,
-            'sexs' => $sexs,
-            'pacients' => $pacients,
-        ]);
     }
 
     /**

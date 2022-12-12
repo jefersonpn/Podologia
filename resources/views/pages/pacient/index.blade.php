@@ -4,7 +4,6 @@
     @include('pages.pacient.partials.header')
     
     <div class="container-fluid mt--7">
-        
         <div class="row">
             <div class="col-xl-8 mb-5 mb-xl-0">
                 <div class="card bg-gradient-default shadow">
