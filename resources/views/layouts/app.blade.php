@@ -23,7 +23,7 @@
         {{-- <link type="text/css" href="{{ asset('assets') }}/css/style.css" rel="stylesheet"> --}} 
         <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css?v=').time()}}">
         <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-         
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     </head>
     <body class="{{ $class ?? '' }}">
                 
@@ -36,7 +36,17 @@
         @endauth
         
         <div  class="main-content">
-            
+            @if (session()->has('success'))
+                <div class="fixed bg-green-100 text-white py-2 px-4 rounded-xl bottom-3 right-3 text-sm">
+                    <p>{{ session('success') }}</p>
+                </div>
+            @endif
+             @if (session()->has('error'))
+                <div class="fixed bg-red-100 text-white py-2 px-4 rounded-xl bottom-3 right-3 text-sm">
+                    <p>{{ session('error') }}</p>
+                </div>
+            @endif
+
             @if(isset($header) )
                 @switch($header)
                     @case(1)

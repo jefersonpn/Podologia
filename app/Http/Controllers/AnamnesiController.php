@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Anaminese;
-use App\Models\CivilState;
+use App\Models\Anamnesi;
 use Illuminate\Http\Request;
 
-class AnamineseController extends Controller
+class AnamnesiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,10 +24,7 @@ class AnamineseController extends Controller
      */
     public function create()
     {
-        //Show form page
-        $estados_civil = CivilState::all();
-       
-        return view('pages.pacient.anaminese.create', ['estados_civil' => $estados_civil]);
+        //
     }
 
     /**
@@ -45,10 +41,10 @@ class AnamineseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Anaminese  $anaminese
+     * @param  \App\Models\Anamnesi  $anamnesi
      * @return \Illuminate\Http\Response
      */
-    public function show(Anaminese $anaminese)
+    public function show(Anamnesi $anamnesi)
     {
         //
     }
@@ -56,10 +52,10 @@ class AnamineseController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Anaminese  $anaminese
+     * @param  \App\Models\Anamnesi  $anamnesi
      * @return \Illuminate\Http\Response
      */
-    public function edit(Anaminese $anaminese)
+    public function edit(Anamnesi $anamnesi)
     {
         //
     }
@@ -68,10 +64,10 @@ class AnamineseController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Anaminese  $anaminese
+     * @param  \App\Models\Anamnesi  $anamnesi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Anaminese $anaminese)
+    public function update(Request $request, Anamnesi $anamnesi)
     {
         //
     }
@@ -79,10 +75,10 @@ class AnamineseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Anaminese  $anaminese
+     * @param  \App\Models\Anamnesi  $anamnesi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Anaminese $anaminese)
+    public function destroy(Anamnesi $anamnesi)
     {
         //
     }

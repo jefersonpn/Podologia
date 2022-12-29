@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CivilState;
 use App\Models\Sex;
 use App\Models\Estado;
 use App\Models\Pacient;
@@ -30,6 +31,7 @@ class PacientController extends Controller
         //
         $estados = Estado::all();
         $sexs = Sex::all();
+        $civilStates = CivilState::all();
         $pacients = Pacient::all();
 
         //dd($pacients);
@@ -38,6 +40,7 @@ class PacientController extends Controller
             'header' => 2,
             'estados' => $estados,
             'sexs' => $sexs,
+            'civilStates' => $civilStates,
             'pacients' => $pacients,
         ]);
     }
@@ -50,7 +53,29 @@ class PacientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Testing the inputs values.
+        // $name = $request->input('name');
+        // $surname = $request->input('surname');
+        // $phone = $request->input('phone');
+        // $dob = $request->input('dob');
+        // $email = $request->input('email');
+        // $password = $request->input('password');
+        // $sex = $request->input('sex');
+        // $state = $request->input('state');
+        // $city = $request->input('city');
+        // $address = $request->input('address');
+        // $number = $request->input('number');
+        // $cap = $request->input('cep');
+
+        // dd("Name: " . $name, "Surname: " . $surname, "Phone: " . $phone, "DataOfBith: " . $dob, "Email: " . $email, "Password: " . $password, "Sex: " . $sex, "State: " . $state, "City: " . $city, "Address: " . $address,  "Number: " . $number, "Cap: " . $cap);
+
+        //Getting all inputs values from the form create Pacient and saving in DB.
+        $input = $request->all();
+        Pacient::create($input);
+
+        session()->flash('success', 'Paciente adicionado com sucesso!');
+        return redirect()->route('pacient.create');
+        
     }
 
     /**

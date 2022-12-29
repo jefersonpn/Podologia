@@ -8,12 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Sex extends Model
 {
     use HasFactory;
-    
-    protected $table = 'sex';
-    protected $primaryKey = 'id';
 
-    protected $fillable = 
-    [
-      'desc',
-    ];
+
+
+
+
+    public function pacients()
+    {
+        return $this->belongsTo(Pacient::class);
+    }
 }

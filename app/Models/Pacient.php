@@ -9,21 +9,45 @@ class Pacient extends Model
 {
     use HasFactory;
 
-    protected $table = 'pacient';
+    protected $table = 'pacients';
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'nome',
-        'sobrenome',
-        'telefone',
-        'dataNascimento',
+        'name',
+        'surname',
+        'phone',
+        'dob',
         'email',
-        'password',
-        'sexo',
-        'id_estado',
-        'id_cidade',
-        'endereco',
-        'numero',
-        'cep',
+        'sex',
+        'state_id',
+        'city_id',
+        'address',
+        'number',
+        'cap',
     ];
+
+    public function cidades()
+    {
+        return $this->hasOne(Cidade::class);
+    }
+
+    public function estados()
+    {
+        return $this->hasOne(Estado::class);
+    }
+    
+    public function sexes()
+    {
+        return $this->hasOne(Sex::class);
+    }
+    
+    public function civilStates()
+    {
+        return $this->hasOne(CivilState::class);
+    }
+
+    public function anamnesis()
+    {
+        return $this->hasOne(Anamnesi::class);
+    }
 }

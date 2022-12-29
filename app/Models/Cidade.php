@@ -2,20 +2,31 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Estado;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Cidade extends Model
+class cidade extends Model
 {
     use HasFactory;
 
     protected $table = 'cidades';
     protected $primaryKey = 'id';
 
-    protected $fillable = 
+    protected $fillable =
     [
-      'nome',
-      'uf',
-      'ibge'
+            'state_id',
+            'uf',
+            'name',
     ];
+
+    public function estados()
+    {
+        return $this->belongsTo(Estado::class);
+    }
+
+    public function pacients()
+    {
+        return $this->belongsTo(Pacient::class);
+    }
 }

@@ -8,7 +8,6 @@ export default defineConfig({
             input: [
                 'resources/sass/app.scss',
                 'resources/js/app.js',
-                'resources/vue/js/estado_input.js',
             ],
             refresh: true,
         }),

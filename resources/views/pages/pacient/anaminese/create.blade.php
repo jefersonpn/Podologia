@@ -60,9 +60,9 @@
                                         <select name="civil_state" class="form-control form-control-alternative{{ $errors->has('civil_state') ? ' is-invalid' : '' }}" required>>
                                           <option value="">@lang('Select')</option>
                                           
-                                          @foreach ($estados_civil as $estado_civil )
+                                          {{-- @foreach ($estados_civil as $estado_civil )
                                             <option value="{{ $estado_civil->id }}">{{ $estado_civil->desc }}</option>
-                                          @endforeach
+                                          @endforeach --}}
                                         </select>
                                         @if ($errors->has('civil_state'))
                                             <span class="invalid-feedback" role="alert">

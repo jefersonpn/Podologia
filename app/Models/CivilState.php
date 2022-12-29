@@ -9,11 +9,16 @@ class CivilState extends Model
 {
     use HasFactory;
 
-    protected $table = 'estado_civil';
+    protected $table = 'civil_states';
     protected $primaryKey = 'id';
 
-    protected $fillable = 
+    protected $fillable =
     [
-      'desc',
+        'desc',
     ];
+
+    public function pacients()
+    {
+        return $this->belongsTo(Pacient::class);
+    }
 }

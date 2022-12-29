@@ -24,10 +24,8 @@
                                 @lang('Anamnese')
                             </div>
                             <br>
-                            <div id="anamnese_pacients">
+                            <div id="app">
                                 <example-component />
-                                <anamnese-component />
-
                             </div>
                         </div>
                     </div>
@@ -110,6 +108,23 @@
                                             </span>
                                         @endif
                                     </div>
+
+                                    <div class="col-3 form-group{{ $errors->has('civilState') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-sex">@lang('Civil State')</label>
+                                        
+                                        <select name="civilState" id="select_civilState"class="form-control form-control-alternative{{ $errors->has('civilState') ? ' is-invalid' : '' }}" required>
+                                            <option value=''>Selecione</option>
+                                            @foreach ($civilStates as $civilState )
+                                                <option value='{{ $civilState->id }}'>{{ $civilState->desc }}</option>
+                                            @endforeach
+                                        </select>
+
+                                            @if ($errors->has('civilState'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $errors->first('civilState') }}</strong>
+                                                </span>
+                                            @endif
+                                    </div>
                                 </div>
                                 <hr class="my-4"/>
                             </div>
@@ -140,7 +155,7 @@
 
                                     <div class="col-6 form-group{{ $errors->has('conf_password') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-conf_password">@lang('Confirm Password')</label>
-                                        <input type="password" name="password" id="input-conf_password" class="form-control form-control-alternative{{ $errors->has('email') ? ' is-invalid' : '' }}" required>
+                                        <input type="password" name="passwordConf" id="input-conf_password" class="form-control form-control-alternative{{ $errors->has('email') ? ' is-invalid' : '' }}" required>
 
                                         @if ($errors->has('password'))
                                             <span class="invalid-feedback" role="alert">
@@ -171,7 +186,7 @@
                                                     <strong>{{ $errors->first('Sex') }}</strong>
                                                 </span>
                                             @endif
-                                        </div>
+                                    </div>
 
                                         <div class="col-4 form-group{{ $errors->has('state') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="input-state">@lang('State')</label>
