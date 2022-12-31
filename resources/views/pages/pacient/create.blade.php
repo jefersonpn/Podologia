@@ -21,33 +21,32 @@
                         <div class="col-lg-10 order-lg-2">
                             <br>
                             <div class="h3">
-                                @lang('Anamnese')
+                                @lang('Pacients Without Anamnese')
                             </div>
+                            <div id="noAnamnesi"></div>
                             <br>
-                            <div id="app">
-                                <example-component />
-                            </div>
+                            
                         </div>
                     </div>
-                    <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
-                         
-                    </div>
+                    
                     <hr class="my-4"/>
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8 pt-3 order-lg-2">
+
+                    <div class="row justify-content-center pb-4">
+                        <div class="col-lg-10 order-lg-2">
                             <div class="h3">
-                                @lang('Diagnosis')
+                                @lang('Professional Obs')
+                            </div>
+                            <div>
+                                <div class="d-flex justify-content-between">
+                                    <a href="#" class="btn btn-sm btn-info mr-4 mb-2">Wellen Nascimento</a>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <a href="#" class="btn btn-sm btn-info mr-4 mb-2">Jeferson Pereira</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
-                        <div class="d-flex justify-content-between">
-                            <a href="#" class="btn btn-sm btn-info mr-4 mb-2">Wellen Nascimento</a>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                             <a href="#" class="btn btn-sm btn-info mr-4 mb-2">Jeferson Pereira</a>
-                        </div>
-                    </div>
+                    
                     
                 </div>
                {{-- End --}}
@@ -109,19 +108,19 @@
                                         @endif
                                     </div>
 
-                                    <div class="col-3 form-group{{ $errors->has('civilState') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-sex">@lang('Civil State')</label>
+                                    <div class="col-3 form-group{{ $errors->has('civilState_id') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="civilState_id">@lang('Civil State')</label>
                                         
-                                        <select name="civilState" id="select_civilState"class="form-control form-control-alternative{{ $errors->has('civilState') ? ' is-invalid' : '' }}" required>
+                                        <select name="civilState_id" id="civilState_id"class="form-control form-control-alternative{{ $errors->has('civilState_id') ? ' is-invalid' : '' }}" required>
                                             <option value=''>Selecione</option>
                                             @foreach ($civilStates as $civilState )
                                                 <option value='{{ $civilState->id }}'>{{ $civilState->desc }}</option>
                                             @endforeach
                                         </select>
 
-                                            @if ($errors->has('civilState'))
+                                            @if ($errors->has('civilState_id'))
                                                 <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('civilState') }}</strong>
+                                                    <strong>{{ $errors->first('civilState_id') }}</strong>
                                                 </span>
                                             @endif
                                     </div>
@@ -142,28 +141,6 @@
                                         @endif
                                     </div>
 
-                                    <div class="col-6 form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-password">@lang('Password')</label>
-                                        <input type="password" name="password" id="input-password" class="form-control form-control-alternative{{ $errors->has('email') ? ' is-invalid' : '' }}" required>
-
-                                        @if ($errors->has('password'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('password') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-
-                                    <div class="col-6 form-group{{ $errors->has('conf_password') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-conf_password">@lang('Confirm Password')</label>
-                                        <input type="password" name="passwordConf" id="input-conf_password" class="form-control form-control-alternative{{ $errors->has('email') ? ' is-invalid' : '' }}" required>
-
-                                        @if ($errors->has('password'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('password') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-
                                 </div>
                                 <hr class="my-4"/>
                             </div>
@@ -171,43 +148,43 @@
                             <div class="pl-lg-4">
                                 <div class="row">
                             
-                                    <div class="col-3 form-group{{ $errors->has('sex') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-sex">@lang('Sex')</label>
+                                    <div class="col-3 form-group{{ $errors->has('sex_id') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="sex_id">@lang('Sex')</label>
                                         
-                                        <select name="sex" id="select_sex"class="form-control form-control-alternative{{ $errors->has('sex') ? ' is-invalid' : '' }}" required>
+                                        <select name="sex_id" id="sex_id"class="form-control form-control-alternative{{ $errors->has('sex_id') ? ' is-invalid' : '' }}" required>
                                             <option value=''>Selecione</option>
                                             @foreach ($sexs as $sex )
                                                 <option value='{{ $sex->id }}'>{{ $sex->desc }}</option>
                                             @endforeach
                                         </select>
 
-                                            @if ($errors->has('sex'))
+                                            @if ($errors->has('sex_id'))
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->first('Sex') }}</strong>
                                                 </span>
                                             @endif
                                     </div>
-
-                                        <div class="col-4 form-group{{ $errors->has('state') ? ' has-danger' : '' }}">
+                                        
+                                        <div class="col-4 form-group{{ $errors->has('estado_id') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="input-state">@lang('State')</label>
                                             
-                                            <select name="state" id="state"class="form-control form-control-alternative{{ $errors->has('state') ? ' is-invalid' : '' }}" required>
+                                            <select name="estado_id" id="estado_id"class="form-control form-control-alternative{{ $errors->has('estado_id') ? ' is-invalid' : '' }}" required>
                                                 <option value=''>Selecione</option>
                                                 @foreach ($estados as $estado )
                                                     <option value='{{ $estado->id }}'>{{ $estado->nome }}</option>
                                                 @endforeach
                                             </select>
 
-                                            @if ($errors->has('state'))
+                                            @if ($errors->has('estado_id'))
                                                 <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('state') }}</strong>
+                                                    <strong>{{ $errors->first('estado_id') }}</strong>
                                                 </span>
                                             @endif
                                         </div>
                                     
-                                            <div class="col-5 form-group{{ $errors->has('city') ? ' has-danger' : '' }}">
-                                                <label class="form-control-label" for="city">@lang('City')</label>
-                                                <select name="city" id="city"class="form-control form-control-alternative{{ $errors->has('city') ? ' is-invalid' : '' }}" required>
+                                            <div class="col-5 form-group{{ $errors->has('cidade_id') ? ' has-danger' : '' }}">
+                                                <label class="form-control-label" for="city_id">@lang('City')</label>
+                                                <select name="cidade_id" id="cidade_id"class="form-control form-control-alternative{{ $errors->has('cidade_id') ? ' is-invalid' : '' }}" required>
                                                     <option value="">Selecione</option>
                                                     
                                                 <script>
@@ -245,9 +222,52 @@
                                                             }
                                                             /* End- Display data */
                                                     });
+
+                                                    $(document).ready(function () 
+                                                    {
+                                                        fetchPacients(); 
+
+                                                        function fetchPacients()
+                                                        {
+                                                            $.ajax(
+                                                                {
+                                                                    type: "GET",
+                                                                    url: "/anamnesi",
+                                                                    //dataType: "json",
+                                                                    success: function (response) 
+                                                                     {
+                                                                         //console.log(response);
+                                                                        $('#noAnamnesi').html("");
+                                                                        if(response.noAnamnesi == ''){
+                                                                            $('#noAnamnesi').append(
+                                                                                '<div class=\"d-flex justify-content-between pt-3 \">\
+                                                                                    <a href=\"#\" class=\"btn btn-sm btn-success mr-4 mb-2\">Nenhuma ficha de Anamnese a ser preenchida!</a>\
+                                                                                </div>'
+                                                                            );
+                                                                        }else{
+                                                                            $.each(response.noAnamnesi, function (key, noAnamnese)
+                                                                            { 
+                                                                                $('#noAnamnesi').append(
+                                                                                    '<div class=\"d-flex justify-content-between pt-3\">\
+                                                                                        <a href=\"#\" class=\"btn btn-sm btn-info mr-4 mb-2\">'+noAnamnese.name+' '+noAnamnese.surname+'</a>\
+                                                                                    </div>'
+                                                                                );
+                                                                            });
+                                                                        }
+                                                                        
+                                                                     },
+                                                                    
+                                                                    error: function() {
+                                                                        console.log('Error');
+                                                                    }
+                                                                    
+                                                                });
+                                                            }
+                                                            
+                                                    });
                                                     
 
-                                                    $(document).on('focusout', '#state', function (e) 
+                                                    $(document).on('focusout', '#estado_id', function (e) 
                                                     {
                                                         e.preventDefault();
                                                         var id_estado = $(this).val();
@@ -264,12 +284,12 @@
                                                                     success: function (response) 
                                                                     {
                                                                         //console.log(response);
-                                                                        $('#city').html("");
-                                                                        $.each(response.cidades, function (key, item) 
+                                                                        $('#cidade_id').html("");
+                                                                        $.each(response.cidades, function (key, cidade) 
                                                                         { 
-                                                                            $('#city').append
+                                                                            $('#cidade_id').append
                                                                             (
-                                                                                '<option value='+item.id+'>'+item.nome+'</option>'
+                                                                                '<option value='+cidade.id+'>'+cidade.nome+'</option>'
                                                                             );
                                                                         });
                                                                     }
@@ -282,9 +302,9 @@
                                                 </script>
                                                 </select>
 
-                                                @if ($errors->has('city'))
+                                                @if ($errors->has('city_id'))
                                                 <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors -> first('city') }}</strong>
+                                                    <strong>{{ $errors -> first('city_id') }}</strong>
                                                 </span>
                                                 @endif
                                             </div>
@@ -314,13 +334,13 @@
                                             @endif
                                         </div>
 
-                                        <div class="col-3 form-group{{ $errors->has('cep') ? ' has-danger' : '' }}">
-                                            <label class="form-control-label" for="input-cep">@lang('Cep')</label>
-                                            <input type="text" name="cep" id="input-cep"class="form-control form-control-alternative{{ $errors->has('cep') ? ' is-invalid' : '' }}" required>
+                                        <div class="col-3 form-group{{ $errors->has('cap') ? ' has-danger' : '' }}">
+                                            <label class="form-control-label" for="input-cap">@lang('Cep')</label>
+                                            <input type="text" name="cap" id="input-cap"class="form-control form-control-alternative{{ $errors->has('cap') ? ' is-invalid' : '' }}" required>
 
-                                            @if ($errors->has('cep'))
+                                            @if ($errors->has('cap'))
                                                 <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('cep') }}</strong>
+                                                    <strong>{{ $errors->first('cap') }}</strong>
                                                 </span>
                                             @endif
                                         </div>
