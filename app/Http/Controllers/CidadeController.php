@@ -45,9 +45,9 @@ class CidadeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id_estado)
-    {
-        //
-        $cidades = Cidade::where('id_estado', $id_estado)->get();
+    { 
+        
+        $cidades = Cidade::where('estado_id', $id_estado)->get();
 
         //dd($cidades);
         return response()->json([

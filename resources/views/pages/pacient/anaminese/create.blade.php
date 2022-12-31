@@ -55,34 +55,20 @@
                                             </span>
                                         @endif
                                     </div>
-                                    <div class="col-6 form-group{{ $errors->has('civil_state') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-civil_state">@lang('Civil State')</label>
-                                        <select name="civil_state" class="form-control form-control-alternative{{ $errors->has('civil_state') ? ' is-invalid' : '' }}" required>>
-                                          <option value="">@lang('Select')</option>
-                                          
-                                          {{-- @foreach ($estados_civil as $estado_civil )
-                                            <option value="{{ $estado_civil->id }}">{{ $estado_civil->desc }}</option>
-                                          @endforeach --}}
-                                        </select>
-                                        @if ($errors->has('civil_state'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('civil_state') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
+                                    
                                 </div>
                                 <div class="row">
-                                    <div class="col-6 form-group{{ $errors->has('socktype') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-socktype">@lang('Type of sock you wear the most')</label>
-                                        <input type="text" name="socktype" id="input-socktype" class="form-control form-control-alternative{{ $errors->has('socktype') ? ' is-invalid' : '' }}" placeholder="@lang('Ex: Meia Soquete')" required>
+                                    <div class="col-6 form-group{{ $errors->has('sockType') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-sockType">@lang('Type of sock you wear the most')</label>
+                                        <input type="text" name="sockType" id="input-sockType" class="form-control form-control-alternative{{ $errors->has('sockType') ? ' is-invalid' : '' }}" placeholder="@lang('Ex: Meia Soquete')" required>
 
-                                        @if ($errors->has('socktype'))
+                                        @if ($errors->has('sockType'))
                                             <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('socktype') }}</strong>
+                                                <strong>{{ $errors->first('sockType') }}</strong>
                                             </span>
                                         @endif
                                     </div>
-                                    <div class="col-6 form-group{{ $errors->has('shoetype') ? ' has-danger' : '' }}">
+                                    <div class="col-6 form-group{{ $errors->has('shoeType') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-dob">@lang('Type of shoe you wear the most')</label>
                                         <input type="text" name="shoetype" id="input-shoetype" placeholder="Ex: Tênis" class="form-control form-control-alternative{{ $errors->has('shoetype') ? ' is-invalid' : '' }}" required>
 
@@ -95,14 +81,14 @@
                                 </div>
                                 <div class="row">
 
-                                    <div class="col-12 form-group{{ $errors->has('surgery_legs') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-surgery_legs">@lang('Have you had any surgery on your lower limbs?')</label>
-                                        <input name="surgery_legs" id="input-surgery_legs" type="text" class="form-control form-control-alternative{{ $errors->has('surgery_legs') ? ' is-invalid' : '' }}" placeholder="@lang('Ex: Nos pés')" required>
+                                    <div class="col-12 form-group{{ $errors->has('legsSurgery') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-legsSurgery">@lang('Have you had any surgery on your lower limbs?')</label>
+                                        <input name="legsSurgery" id="input-legsSurgery" type="text" class="form-control form-control-alternative{{ $errors->has('legsSurgery') ? ' is-invalid' : '' }}" placeholder="@lang('Ex: Nos pés')" required>
                                 
 
-                                        @if ($errors->has('surgery_legs'))
+                                        @if ($errors->has('legsSurgery'))
                                             <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('surgery_legs') }}</strong>
+                                                <strong>{{ $errors->first('legsSurgery') }}</strong>
                                             </span>
                                         @endif
                                     </div>
@@ -172,10 +158,10 @@
                                     <div class="col-12 form-group">
                                         <p class="form-control-label">@lang('Have you ?')</p>
                                         
-                                        <input type="checkbox" name="pacemaker" id="input-pacemaker" class="btn-check">
-                                        <label class="form-control-label" for="pacemaker" style="padding-right: 30px;">@lang('Pacemaker')</label>
+                                        <input type="checkbox" name="paceMaker" id="input-paceMaker" class="btn-check">
+                                        <label class="form-control-label" for="paceMaker" style="padding-right: 30px;">@lang('Pacemaker')</label>
                                         <input type="checkbox" name="pino" id="input-pinos" class="btn-check">
-                                        <label class="form-control-label" for="highPressure" style="padding-right: 30px;">@lang('Pin')</label>
+                                        <label class="form-control-label" for="pino" style="padding-right: 30px;">@lang('Pin')</label>
                                         <input type="checkbox" name="highPressure" id="input-highPressure" class="btn-check">
                                         <label class="form-control-label" for="highPressure" style="padding-right: 30px;">@lang('High Pressure')</label>
                                         <input type="checkbox" name="seizures" id="input-seizures" class="btn-check">

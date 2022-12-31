@@ -59,7 +59,6 @@ class PacientController extends Controller
         // $phone = $request->input('phone');
         // $dob = $request->input('dob');
         // $email = $request->input('email');
-        // $password = $request->input('password');
         // $sex = $request->input('sex');
         // $state = $request->input('state');
         // $city = $request->input('city');
@@ -67,8 +66,9 @@ class PacientController extends Controller
         // $number = $request->input('number');
         // $cap = $request->input('cep');
 
-        // dd("Name: " . $name, "Surname: " . $surname, "Phone: " . $phone, "DataOfBith: " . $dob, "Email: " . $email, "Password: " . $password, "Sex: " . $sex, "State: " . $state, "City: " . $city, "Address: " . $address,  "Number: " . $number, "Cap: " . $cap);
-
+        // dd("Name: " . $name, "Surname: " . $surname, "Phone: " . $phone, "DataOfBith: " . $dob, "Email: " . $email, "Sex: " . $sex, "State: " . $state, "City: " . $city, "Address: " . $address,  "Number: " . $number, "Cap: " . $cap);
+        
+        //dd($request);
         //Getting all inputs values from the form create Pacient and saving in DB.
         $input = $request->all();
         Pacient::create($input);

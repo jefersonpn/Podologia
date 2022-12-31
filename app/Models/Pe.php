@@ -5,21 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Sex extends Model
+class Pe extends Model
 {
     use HasFactory;
 
-    protected $table = 'sexes';
+    protected $table = 'pes';
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'desc',
+        'lado',
     ];
 
-
-
-    public function pacients()
+    public function Perfusoes()
     {
-        return $this->belongsTo(Pacient::class);
+        return $this->belongsToMany(Perfusao::class);
     }
 }

@@ -8,11 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Perfusao extends Model
 {
     use HasFactory;
-    
-    protected $table = 'perfusao';
+
+    protected $table = 'perfusoes';
     protected $primaryKey = 'id';
-    
+
     protected $fillable = [
-      'desc'
+        'desc'
     ];
+
+    public function Pes()
+    {
+        return $this->belongsToMany(Pe::class);
+    }
 }

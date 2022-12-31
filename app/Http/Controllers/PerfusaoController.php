@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Obs;
 use App\Models\Perfusao;
 use Illuminate\Http\Request;
 
-class ObsController extends Controller
+class PerfusaoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,9 +25,6 @@ class ObsController extends Controller
     public function create()
     {
         //
-        $perfusoes = Perfusao::all();
-        
-        return view('pages.pacient.obs_prof.create',['perfusoes' => $perfusoes]);
     }
 
     /**
@@ -45,10 +41,10 @@ class ObsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Obs  $obs
+     * @param  \App\Models\Perfusao  $perfusao
      * @return \Illuminate\Http\Response
      */
-    public function show(Obs $obs)
+    public function show(Perfusao $perfusao)
     {
         //
     }
@@ -56,10 +52,10 @@ class ObsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Obs  $obs
+     * @param  \App\Models\Perfusao  $perfusao
      * @return \Illuminate\Http\Response
      */
-    public function edit(Obs $obs)
+    public function edit(Perfusao $perfusao)
     {
         //
     }
@@ -68,10 +64,10 @@ class ObsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Obs  $obs
+     * @param  \App\Models\Perfusao  $perfusao
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Obs $obs)
+    public function update(Request $request, Perfusao $perfusao)
     {
         //
     }
@@ -79,10 +75,10 @@ class ObsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Obs  $obs
+     * @param  \App\Models\Perfusao  $perfusao
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Obs $obs)
+    public function destroy(Perfusao $perfusao)
     {
         //
     }

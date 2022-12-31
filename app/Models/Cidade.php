@@ -15,9 +15,9 @@ class cidade extends Model
 
     protected $fillable =
     [
-            'state_id',
+            'estado_id',
             'uf',
-            'name',
+            'nome',
     ];
 
     public function estados()

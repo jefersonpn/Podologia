@@ -7,8 +7,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CidadeController;
 use App\Http\Controllers\EstadoController;
 use App\Http\Controllers\PacientController;
+use App\Http\Controllers\AnamnesiController;
 use App\Http\Controllers\PatologyController;
-use App\Http\Controllers\AnamineseController;
+use App\Http\Controllers\ObsProfissionalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,11 @@ Route::resource('patology', PatologyController::class);
 Route::resource('pacient', PacientController::class);
 // END PACIENT-------------------------------------------------------// 
 
+// ANAMNESI-----------------------------------------------------------//
+Route::resource('anamnesi', AnamnesiController::class);
+// END ANAMNESI-------------------------------------------------------// 
+
+
 
 // ESTADOS------------------------------------------------------------//
 Route::get('estados_show', [EstadoController::class, 'show']);
@@ -51,9 +57,9 @@ Route::get('cidades_show/{id_estado}', [CidadeController::class, 'show']);
 // END CIDADES-------------------------------------------------------------//
 
 // ANAMINESE-----------------------------------------------------------------//
-Route::get('/anaminese/create', [AnamineseController::class, 'create']);
-Route::post('/anaminese/store', [AnamineseController::class, 'store']);
-Route::get('/obs_prof/create', [ObsController::class, 'create']);
+Route::get('/anaminese/create', [AnamnesiController::class, 'create']);
+Route::post('/anaminese/store', [AnamnesiController::class, 'store']);
+Route::get('/obs_prof/create', [ObsProfissionalController::class, 'create']);
 
 // END ANAMINESE-------------------------------------------------------------//
 

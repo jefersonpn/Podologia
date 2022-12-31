@@ -16,9 +16,11 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('surname');
-            $table->string('phone');
+            $table->string('phone')->unique();
             $table->string('dob');
-            $table->string('email');
+            $table->unsignedBigInteger('civilState_id');
+            $table->foreign('civilState_id')->references('id')->on('civil_states');
+            $table->string('email')->unique();
             $table->unsignedBigInteger('sex_id');
             $table->foreign('sex_id')->references('id')->on('sexes');
             $table->unsignedBigInteger('estado_id');
@@ -34,7 +36,8 @@ return new class extends Migration {
             $table->string('address');
             $table->string('number');
             $table->string('cap');
-            $table->integer('anamnese')->default(0);
+            $table->integer('anamnese')->default(0)->nullable();
+            $table->integer('obsProf')->default(0)->nullable();
             $table->timestamps();
         });
     }

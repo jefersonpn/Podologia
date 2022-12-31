@@ -36,16 +36,6 @@
         @endauth
         
         <div  class="main-content">
-            @if (session()->has('success'))
-                <div class="fixed bg-green-100 text-white py-2 px-4 rounded-xl bottom-3 right-3 text-sm">
-                    <p>{{ session('success') }}</p>
-                </div>
-            @endif
-             @if (session()->has('error'))
-                <div class="fixed bg-red-100 text-white py-2 px-4 rounded-xl bottom-3 right-3 text-sm">
-                    <p>{{ session('error') }}</p>
-                </div>
-            @endif
 
             @if(isset($header) )
                 @switch($header)
@@ -69,7 +59,30 @@
             @include('layouts.footers.guest')
         @endguest
 
-        
+        @if (session()->has('success'))
+            <div class="alert alert-success" style="
+            position:fixed; 
+            bottom: 0px; 
+            right: 0px; 
+            width: auto;
+            z-index:9999; 
+            border-radius:0px;" 
+            role="alert">
+                {{ session('success') }}
+            </div>
+        @endif
+            @if (session()->has('error'))
+            <div class="alert alert-danger " style="
+            position:fixed; 
+            bottom: 0px; 
+            right: 0px; 
+            width: auto;
+            z-index:9999; 
+            border-radius:0px;" 
+            role="alert">
+                {{ session('error') }}
+            </div>
+        @endif
 
         <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
         <script src="{{ asset('argon') }}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

@@ -17,13 +17,16 @@ class Pacient extends Model
         'surname',
         'phone',
         'dob',
+        'civilState_id',
         'email',
-        'sex',
-        'state_id',
-        'city_id',
+        'sex_id',
+        'estado_id',
+        'cidade_id',
         'address',
         'number',
         'cap',
+        'anamnese',
+        'obsProf',
     ];
 
     public function cidades()
@@ -49,5 +52,10 @@ class Pacient extends Model
     public function anamnesis()
     {
         return $this->hasOne(Anamnesi::class);
+    }
+
+    public function pes_perfusoes()
+    {
+        return $this->hasMany(pes_perfusao::class);
     }
 }

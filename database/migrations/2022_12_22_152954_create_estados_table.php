@@ -17,13 +17,13 @@ return new class extends Migration
         Schema::create('estados', function (Blueprint $table) {
             $table->id();
             $table->string('uf');
-            $table->string('name');
+            $table->string('nome');
             $table->timestamps();
        });
 
            $data = [
                     
-                    ['id' => 12, 'uf'=> 'MS','name'=> 'Mato Grosso do Sul'],
+                    ['id' => 12, 'uf'=> 'MS','nome'=> 'Mato Grosso do Sul'],
                 ];            
         Estado::insert($data);        
     }

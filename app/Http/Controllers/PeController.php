@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pacient;
-use App\Models\Anamnesi;
+use App\Models\Pe;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class AnamnesiController extends Controller
+class PeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,12 +15,6 @@ class AnamnesiController extends Controller
     public function index()
     {
         //
-        $noAnamnesi = DB::table('pacients')->take(8)->where('anamnese', 0)->get();
-
-        return response()->json([
-            'noAnamnesi' => $noAnamnesi,
-        ]);
-        
     }
 
     /**
@@ -33,7 +25,6 @@ class AnamnesiController extends Controller
     public function create()
     {
         //
-        return view('pages.pacient.anaminese.create');
     }
 
     /**
@@ -50,22 +41,21 @@ class AnamnesiController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Anamnesi  $anamnesi
+     * @param  \App\Models\Pe  $pe
      * @return \Illuminate\Http\Response
      */
-    public function show(Anamnesi $anamnesi)
+    public function show(Pe $pe)
     {
         //
-       
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Anamnesi  $anamnesi
+     * @param  \App\Models\Pe  $pe
      * @return \Illuminate\Http\Response
      */
-    public function edit(Anamnesi $anamnesi)
+    public function edit(Pe $pe)
     {
         //
     }
@@ -74,10 +64,10 @@ class AnamnesiController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Anamnesi  $anamnesi
+     * @param  \App\Models\Pe  $pe
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Anamnesi $anamnesi)
+    public function update(Request $request, Pe $pe)
     {
         //
     }
@@ -85,10 +75,10 @@ class AnamnesiController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Anamnesi  $anamnesi
+     * @param  \App\Models\Pe  $pe
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Anamnesi $anamnesi)
+    public function destroy(Pe $pe)
     {
         //
     }

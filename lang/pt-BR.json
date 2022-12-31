@@ -240,7 +240,10 @@
     "Others info": "Outros Dados",
     "Anamnese": "Anamnese",
     "Diagnosis": "Diagnostico",
-    "Waiting": "Aguardando"
+    "Waiting": "Aguardando",
+    "circulatory problems": "Problema de Circulação",
+    "Pacients Without Anamnese": "Pacientes Sem Anamnese",
+    "Professional Obs": "Obs Profissional"
 
 
 }
