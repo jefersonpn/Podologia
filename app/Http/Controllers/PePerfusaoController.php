@@ -37,6 +37,7 @@ class PePerfusaoController extends Controller
     {
         //dd($request);
         $input = $request->all();
+        //dd($input);
         Pe_Perfusao::create($input);
         
         session()->flash('success', 'Perfusão adicionada com sucesso!');

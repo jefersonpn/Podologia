@@ -25,13 +25,13 @@ return new class extends Migration
             $table->string('medicine');
             $table->string('painSensitivity');
             $table->string('pregnant');
-            $table->string('paceMaker')->default('0');
-            $table->string('pino')->default('0');
-            $table->string('highPressure')->default('0');
-            $table->string('seizures')->default('0');
-            $table->string('diabetes')->default('0');
-            $table->string('carcinogenic')->default('0');
-            $table->string('circulatory')->default('0');
+            $table->string('paceMaker')->default('0')->nullable();
+            $table->string('pino')->default('0')->nullable();
+            $table->string('highPressure')->default('0')->nullable();
+            $table->string('seizures')->default('0')->nullable();
+            $table->string('diabetes')->default('0')->nullable();
+            $table->string('carcinogenic')->default('0')->nullable();
+            $table->string('circulatory')->default('0')->nullable();
             $table->timestamps();
         });
     }

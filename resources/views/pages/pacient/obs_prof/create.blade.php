@@ -63,7 +63,7 @@
                             @csrf
                             
                             <div class="col-4 form-group">
-                               
+                               <input type="hidden" id="pacient_id" name="pacient_id" value="{{ $pacient->id }}">
                                 <label class="" for="perfusao_id">@lang('Perfusion')</label>
                                 <select name="perfusao_id" id="perfusao_id" class="form-control form-control-alternative{{ $errors->has('perfusao_id') ? ' is-invalid' : '' }}" required>
                                     <option value="">@lang('Select')</option>

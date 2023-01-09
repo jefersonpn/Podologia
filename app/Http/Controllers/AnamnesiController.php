@@ -98,7 +98,29 @@ class AnamnesiController extends Controller
         
         $anamnese = Anamnesi::find($anamnesi->id);
         $input = $request->all();
-        
+        //dd($input);
+        if (!array_key_exists('paceMaker', $input)) {
+            $input['paceMaker'] = 'off';
+        }
+        if (!array_key_exists('pino', $input)) {
+            $input['pino'] = 'off';
+        }
+        if (!array_key_exists('highPressure', $input)) {
+            $input['highPressure'] = 'off';
+        }
+        if (!array_key_exists('seizures', $input)) {
+            $input['seizures'] = 'off';
+        }
+        if (!array_key_exists('diabetes', $input)) {
+            $input['diabetes'] = 'off';
+        }
+        if (!array_key_exists('carcinogenic', $input)) {
+            $input['carcinogenic'] = 'off';
+        }
+        if (!array_key_exists('circulatory', $input)) {
+            $input['circulatory'] = 'off';
+        }
+        //dd($input);
         $anamnese->update($input);
         
         // I used back()->with() becouse without with the flash msg was not going to the view.

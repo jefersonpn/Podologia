@@ -123,12 +123,12 @@
                                     
                                 </div>
                                 <div class="row">
-
+                                    
                                     <div class="col-6 form-group{{ $errors->has('pregnant') ? ' has-danger' : '' }}">
                                         <label style="padding-right: 10px;" class="form-control-label" for="pregnant">@lang('Pregnant ?')</label>
-                                        <input type="radio" name="pregnant" id="input-pregnant-no"  class="btn-check form-control-alternative{{ $errors->has('pregnant') ? ' is-invalid' : '' }}" checked>
+                                        <input type="radio" name="pregnant" value="0" id="input-pregnant-no"  @if( $anamnese->pregnant  == '0' ) checked @endif class="btn-check form-control-alternative{{ $errors->has('pregnant') ? ' is-invalid' : '' }}" >
                                         <label class="form-control-label" for="pregnant">@lang('No')</label>
-                                        <input type="radio" name="pregnant" id="input-pregnant-yes" @if( $anamnese->pregnant  == 'on' ) checked @endif class="btn-check form-control-alternative{{ $errors->has('pregnant') ? ' is-invalid' : '' }}">
+                                        <input type="radio" name="pregnant" value="1" id="input-pregnant-yes" @if( $anamnese->pregnant  == '1' ) checked @endif class="btn-check form-control-alternative{{ $errors->has('pregnant') ? ' is-invalid' : '' }}">
                                         <label class="form-control-label" for="pregnant">@lang('Yes')</label>
 
                                         @if ($errors->has('pregnant'))
@@ -144,20 +144,20 @@
                                     <div class="col-12 form-group">
                                         <p class="form-control-label">@lang('Have you ?')</p>
                                         
-                                        <input type="checkbox" name="paceMaker" id="input-paceMaker" class="btn-check" @if( $anamnese->paceMaker  == 'on' ) checked @endif>
+                                        <input type="checkbox" name="paceMaker" id="paceMaker" class="btn-check" {{ $anamnese->paceMaker == 'on' ? 'checked' : '' }}>
                                         <label class="form-control-label" for="paceMaker" style="padding-right: 30px;">@lang('Pacemaker')</label>
-                                        <input type="checkbox" name="pino" id="input-pinos" class="btn-check" @if( $anamnese->pino  == 'on' ) checked @endif>
+                                        <input type="checkbox" name="pino" id="input-pinos" class="btn-check" {{  $anamnese->pino  == 'on' ? 'checked' : ''  }}>
                                         <label class="form-control-label" for="pino" style="padding-right: 30px;">@lang('Pin')</label>
-                                        <input type="checkbox" name="highPressure" id="input-highPressure" class="btn-check"  @if( $anamnese->highPressure  == 'on' ) checked @endif>
+                                        <input type="checkbox" name="highPressure" id="input-highPressure" class="btn-check"  {{  $anamnese->highPressure  == 'on' ? 'checked' : ''  }}>
                                         <label class="form-control-label" for="highPressure" style="padding-right: 30px;">@lang('High Pressure')</label>
-                                        <input type="checkbox" name="seizures" id="input-seizures" class="btn-check" @if( $anamnese->seizures  == 'on' ) checked @endif>
+                                        <input type="checkbox" name="seizures" id="input-seizures" class="btn-check" {{  $anamnese->seizures  == 'on' ? 'checked' : ''  }}>
                                         <label class="form-control-label" for="seizures" style="padding-right: 30px;">@lang('Seizures')</label>
-                                        <input type="checkbox" name="diabetes" id="input-diabetes" class="btn-check"  @if( $anamnese->diabetes  == 'on' ) checked @endif>
+                                        <input type="checkbox" name="diabetes" id="input-diabetes" class="btn-check"  {{  $anamnese->diabetes  == 'on' ? 'checked' : ''  }}>
                                         <label class="form-control-label" for="diabetes" style="padding-right: 30px;">@lang('Diabetes')</label>
                                         <br>
-                                        <input type="checkbox" name="carcinogenic" id="input-carcinogenic" class="btn-check" @if( $anamnese->carcinogenic  == 'on' ) checked @endif>
+                                        <input type="checkbox" name="carcinogenic" id="input-carcinogenic" class="btn-check" {{  $anamnese->carcinogenic  == 'on' ? 'checked' : ''  }}>
                                         <label class="form-control-label" for="carcinogenic" style="padding-right: 30px;">@lang('Carcinogenic Antecedents')</label>
-                                        <input type="checkbox" name="circulatory" id="input-circulatory" class="btn-check" @if( $anamnese->circulatory  == 'on' ) checked @endif>
+                                        <input type="checkbox" name="circulatory" id="input-circulatory" class="btn-check" {{  $anamnese->circulatory  == 'on' ? 'checked' : ''  }}>
                                         <label class="form-control-label" for="circulatory" style="padding-right: 30px;">@lang('circulatory problems')</label>
 
                                     </div>
