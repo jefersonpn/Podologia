@@ -70,7 +70,7 @@
                                             <span class="completion mr-2">{{ $pacient->percent }}%</span>
                                             <div>
                                                 <div class="progress">
-                                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="{{ $pacient->percent }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ $pacient->percent }}%;"></div>
+                                                    <div class="progress-bar {{ $pacient->percent == 100 ? "bg-success" : "bg-warning" }} role="progressbar" aria-valuenow="{{ $pacient->percent }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ $pacient->percent }}%;"></div>
                                                 </div>
                                             </div>
                                         </div>

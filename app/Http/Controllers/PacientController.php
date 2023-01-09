@@ -21,13 +21,17 @@ class PacientController extends Controller
         $pacients = Pacient::all();
         //@dd($pacients);
         foreach($pacients as $pacient){
+            //dd($pacient->percent);
             if(($pacient->anamnese == 1) && ($pacient->obsProf == 1) ){
                 $pacient->percent = 100;
             }elseif(($pacient->anamnese == 1) && ($pacient->obsProf == 0)){
                 $pacient->percent = 50;
             }elseif(($pacient->anamnese == 0) && ($pacient->obsProf == 1)){
                 $pacient->percent = 50;
+            }else{
+                $pacient->percent = 10;
             }
+            //dd($pacient->percent);
         }
         return view('pages.pacient.index', ['header' => 2, 'pacients' => $pacients]);
     }
