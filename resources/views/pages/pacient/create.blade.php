@@ -20,6 +20,7 @@
                     <div class="card-body">
                         <form method="post" action="{{ route('pacient.store') }}" autocomplete="off">
                             @csrf
+                            <input type="hidden" name="percent" value="10">
                             <h6 class="heading-small text-muted mb-4">@lang('Pacient information')</h6>
                             
                             <div class="pl-lg-4">

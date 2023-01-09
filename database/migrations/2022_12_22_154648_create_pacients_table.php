@@ -36,6 +36,7 @@ return new class extends Migration {
             $table->string('address');
             $table->string('number');
             $table->string('cap');
+            $table->string('percent')->default(10)->nullable();
             $table->integer('anamnese')->default(0)->nullable();
             $table->integer('obsProf')->default(0)->nullable();
             $table->timestamps();

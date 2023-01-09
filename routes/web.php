@@ -50,7 +50,7 @@ Route::put('anamnesi/{anamnesi}', [AnamnesiController::class, 'update'])->name('
 // END ANAMNESI-------------------------------------------------------// 
 
 Route::post('obsProf/store', [ObsProfissionalController::class, 'store'])->name('obsProf.store');
-
+Route::put('obsProf/{obsProf}', [ObsProfissionalController::class, 'update'])->name('obsProf.update');
 
 // ESTADOS------------------------------------------------------------//
 Route::get('estados_show', [EstadoController::class, 'show']);

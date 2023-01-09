@@ -21,7 +21,7 @@ class AnamnesiController extends Controller
         foreach($pacients as $pac){
             if($pac->anamnese == 1){
                 
-               $anamnesi = Anamnesi::where('pacient_id', $pacient)->get();
+               $anamnesi = Anamnesi::where('pacient_id', $pacient)->limit(1)->get();
                
                 return  view('pages.pacient.anaminese.create', [
                     'pacients' => $pacients,

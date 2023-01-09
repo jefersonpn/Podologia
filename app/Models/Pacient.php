@@ -25,6 +25,7 @@ class Pacient extends Model
         'address',
         'number',
         'cap',
+        'percent',
         'anamnese',
         'obsProf',
     ];

@@ -16,9 +16,19 @@ class PacientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   
+        
         $pacients = Pacient::all();
+        //@dd($pacients);
+        foreach($pacients as $pacient){
+            if(($pacient->anamnese == 1) && ($pacient->obsProf == 1) ){
+                $pacient->percent = 100;
+            }elseif(($pacient->anamnese == 1) && ($pacient->obsProf == 0)){
+                $pacient->percent = 50;
+            }elseif(($pacient->anamnese == 0) && ($pacient->obsProf == 1)){
+                $pacient->percent = 50;
+            }
+        }
         return view('pages.pacient.index', ['header' => 2, 'pacients' => $pacients]);
     }
 
