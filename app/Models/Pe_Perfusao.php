@@ -5,19 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Perfusao extends Model
+class Pe_Perfusao extends Model
 {
     use HasFactory;
 
-    protected $table = 'perfusoes';
+    protected $table = 'pe_perfusao';
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'desc'
+        'pacient_id',
+        'pe_id',
+        'perfusao_id',
+        
     ];
 
-    public function Pes()
+    public function pacients()
     {
-        return $this->belongsToMany(Pe::class)->withTimestamps();
+        return $this->hasMany(Pacient::class);
     }
 }

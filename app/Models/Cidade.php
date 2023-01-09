@@ -6,7 +6,7 @@ use App\Models\Estado;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class cidade extends Model
+class Cidade extends Model
 {
     use HasFactory;
 

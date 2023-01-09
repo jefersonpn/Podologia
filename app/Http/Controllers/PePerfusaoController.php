@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cidade;
+use App\Models\Pe_Perfusao;
 use Illuminate\Http\Request;
 
-class CidadeController extends Controller
+class PePerfusaoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,49 +35,45 @@ class CidadeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+        $input = $request->all();
+        Pe_Perfusao::create($input);
+        
+        session()->flash('success', 'Perfusão adicionada com sucesso!');
+        return redirect()->back();
+        
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Cidade  $cidade
+     * @param  \App\Models\Pe_Perfusao  $pe_Perfusao
      * @return \Illuminate\Http\Response
      */
-    public function show($id_estado)
-    { 
-        
-        $cidades = Cidade::where('estado_id', $id_estado)->get();
-
-        //dd($cidades);
-        return response()->json([
-            'cidades' => $cidades,
-        ]);    
+    public function show(Pe_Perfusao $pe_Perfusao)
+    {
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Cidade  $cidade
+     * @param  \App\Models\Pe_Perfusao  $pe_Perfusao
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cidade $cidade)
+    public function edit(Pe_Perfusao $pe_Perfusao)
     {
         //
-        $cidade = Cidade::where('id', $cidade)->get();
-        return response()->json([
-            'cidade' => $cidade,
-        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Cidade  $cidade
+     * @param  \App\Models\Pe_Perfusao  $pe_Perfusao
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cidade $cidade)
+    public function update(Request $request, Pe_Perfusao $pe_Perfusao)
     {
         //
     }
@@ -85,11 +81,14 @@ class CidadeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Cidade  $cidade
+     * @param  \App\Models\Pe_Perfusao  $pe_Perfusao
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cidade $cidade)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->pe_perfusao_id;
+        Pe_Perfusao::destroy($id);
+        session()->flash('error', 'Perfusao deletada!');
+        return redirect()->back(); 
     }
 }

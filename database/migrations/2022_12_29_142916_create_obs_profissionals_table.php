@@ -15,10 +15,8 @@ return new class extends Migration
     {
         Schema::create('obs_profissionals', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('perfusoes_id');
-            $table->foreign('perfusoes_id')->references('id')->on('pe_perfusao');
+            $table->unsignedBigInteger('pacient_id');
+            $table->foreign('pacient_id')->references('id')->on('pacients');
             $table->string('pressaoPD');
             $table->string('pressaoPE');
             $table->string('monofilamentoPD');
@@ -27,6 +25,7 @@ return new class extends Migration
             $table->string('dermatologicasPE');
             $table->string('ungueaisPD');
             $table->string('ungueaisPE');
+            $table->longText('procedimentoProf');
             $table->timestamps();
         });
     }

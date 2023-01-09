@@ -7,246 +7,208 @@
         'class' => 'col-lg-7'
     ])   
 
-    <div class="container-fluid mt--7">
-       
-        <div class="row">
-            <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
-               {{-- Start --}}
-               {{-- End --}}
-            </div>
-            <div class="col-xl-12 order-xl-1">
-                <div class="card bg-secondary shadow">
-                    <div class="card-header bg-white border-0">
-                        <div class="row align-items-center">
-                            <h3 class="mb-0">@lang('Professional Notes')</h3>
+<div class="container-fluid mt--7">
+    @foreach ($pacients as $pacient )
+    {{-- Perfusoes added list --}}
+    <div class="row">
+        <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+            <div class="card bg-secondary shadow">
+                <div class="card-header bg-white border-0">
+                    <div class="row pb-3 ">
+                        <h3>@lang('Perfusion List')</h3>
+                    </div>
+
+                    @forelse ($pesperfusoes as $pe_perfusao)
+                        <div id="list_perfusoes_btnDelete" class="row">
+                            <form method="post" action="{{ route('peperfusao.delete') }}">
+                                @csrf
+                                @method('DELETE')
+                                <input type="hidden"  name="pe_perfusao_id"  value="{{ $pe_perfusao->id }}">
+                                <button type="submit" class="btn btn-danger btn-sm my-1">x</button>
+                                @if($pe_perfusao->desc == "Normal")
+                                    <span class="badge badge-success my-1">{{ $pe_perfusao->desc }}, {{ $pe_perfusao->lado }}</span>
+                                @else
+                                    <span class="badge badge-warning my-1">{{ $pe_perfusao->desc }}, {{ $pe_perfusao->lado }}</span>
+                                @endif
+                            </form>
                         </div>
-                    </div>
-                    <div class="card-body">
-                        <form method="post" action="/anaminese/store" autocomplete="off">
-                            @csrf
-                            <h6 class="heading-small text-muted mb-4">@lang('Pacient information')</h6>
-                            
-                            <div class="pl-lg-4">
-                                <div class="row justify-content-end">
-                                    <div class="col-2 form-group p-0">
-                                        <img class="ml-4 mt-2" style="width: 60px; height: auto; " src="{{ asset('images') }}/dorsal_pe_esq.png" alt="right foot">
-                                        <br>
-                                        <label class="btn btn-info mb-0 mt-4 ml-0">@lang('Left foot')</label>
-                                    </div>
-
-                                    <div class="col-2 form-group p-0">
-                                        <img class="ml-4 mt-2" style="width: 60px; height: auto; " src="{{ asset('images') }}/dorsal_pe_dir.png" alt="right foot">
-                                         <br>
-                                        <label class="btn btn-info mb-0 mt-4 ml-1">@lang('Right foot')</label>
-                                    </div>
-                                    <div class="col-2 form-group p-0 mt-4">
-                                        <img class="ml-4" style="width: 60px; height: auto; " src="{{ asset('images') }}/pe_esq.png" alt="right foot">
-                                        <br>
-                                        <label class="btn btn-info mb-0 mt-5 ml-2">@lang('Left foot')</label>
-                                    </div>
-                                    <div class="col-2 form-group p-0 mt-4">
-                                        <img class="ml-4" style="width: 60px; height: auto; " src="{{ asset('images') }}/pe_dir.png" alt="right foot">
-                                        <br>
-                                        <label class="btn btn-info mb-0 mt-5 ml-0">@lang('Right foot')</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pl-lg-4">
-                                <div class="row justify-content-start">
-                                    
-                                        <div class="col-3 form-group p-0">
-                                            <label class="mr-9" for="">@lang('Perfusion')</label>
-                                            <select name="perfusion" class="form-control form-control-alternative{{ $errors->has('perfusion') ? ' is-invalid' : '' }}" required>>
-                                            
-                                                    <option value="">@lang('Select')</option>
-                                                @foreach ($perfusoes as $perfusao )
-                                                    <option value="{{ $perfusao->id }}">{{ $perfusao->desc }}</option>
-                                                @endforeach
-
-                                            </select>
-                                        </div>
-                                        <div class="col-9 form-group p-0 mt-5">
-                                            <input class="ml-9" type="checkbox" name="pe_esq_dorsal" id="input_pe_esq_dorsal">
-                                            <input class="ml-8" type="checkbox" name="pe_dir_dorsal" id="input_pe_dir_dorsal">
-                                            <input class="ml-9" type="checkbox" name="pe_esq_plantar" id="input_pe_esq_plantar">
-                                            <input class="ml-8" type="checkbox" name="pe_dir_plantar" id="input_pe_dir_plantar">
-                                        </div>
-                                </div>
-
-                                   
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-6 form-group{{ $errors->has('profession') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-perfusion">@lang('Perfusion')</label>
-                                            <select name="perfusion" class="form-control form-control-alternative{{ $errors->has('perfusion') ? ' is-invalid' : '' }}" required>>
-                                           
-                                                <option value="">@lang('Select')</option>
-                                            @foreach ($perfusoes as $perfusao )
-                                                <option value="{{ $perfusao->id }}">{{ $perfusao->desc }}</option>
-                                            @endforeach
-
-                                        </select>
-                                        @if ($errors->has('profession'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('profession') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                    <div class="col-6 form-group{{ $errors->has('civil_state') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-civil_state">@lang('Civil State')</label>
-                                        <select name="civil_state" class="form-control form-control-alternative{{ $errors->has('civil_state') ? ' is-invalid' : '' }}" required>>
-                                          <option value="">@lang('Select')</option>
-                                          
-                                          {{-- @foreach ($estados_civil as $estado_civil )
-                                            <option value="{{ $estado_civil->id }}">{{ $estado_civil->desc }}</option>
-                                          @endforeach --}}
-                                        </select>
-                                        @if ($errors->has('civil_state'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('civil_state') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6 form-group{{ $errors->has('socktype') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-socktype">@lang('Type of sock you wear the most')</label>
-                                        <input type="text" name="socktype" id="input-socktype" class="form-control form-control-alternative{{ $errors->has('socktype') ? ' is-invalid' : '' }}" placeholder="@lang('Ex: Meia Soquete')" required>
-
-                                        @if ($errors->has('socktype'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('socktype') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                    <div class="col-6 form-group{{ $errors->has('shoetype') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-dob">@lang('Type of shoe you wear the most')</label>
-                                        <input type="text" name="shoetype" id="input-shoetype" placeholder="Ex: Tênis" class="form-control form-control-alternative{{ $errors->has('shoetype') ? ' is-invalid' : '' }}" required>
-
-                                        @if ($errors->has('shoetype'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('shoetype') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="row">
-
-                                    <div class="col-12 form-group{{ $errors->has('surgery_legs') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-surgery_legs">@lang('Have you had any surgery on your lower limbs?')</label>
-                                        <input name="surgery_legs" id="input-surgery_legs" type="text" class="form-control form-control-alternative{{ $errors->has('surgery_legs') ? ' is-invalid' : '' }}" placeholder="@lang('Ex: Nos pés')" required>
-                                
-
-                                        @if ($errors->has('surgery_legs'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('surgery_legs') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                         <div class="col-6 form-group{{ $errors->has('sport') ? ' has-danger' : '' }}">
-                                            <label class="form-control-label" for="input-sport">@lang('Do you practice any sport?')</label>
-                                            <input name="sport" id="input-sport" type="text" class="form-control form-control-alternative{{ $errors->has('sport') ? ' is-invalid' : '' }}" placeholder="@lang('Ex: Futebol, Natação')" required>
-                                    
-
-                                            @if ($errors->has('sport'))
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('sport') }}</strong>
-                                                </span>
-                                            @endif
-                                        </div>
-                                        <div class="col-6 form-group{{ $errors->has('medicine') ? ' has-danger' : '' }}">
-                                            <label class="form-control-label" for="input-sport">@lang('Do you take any medicine?')</label>
-                                            <input name="medicine" id="input-medicine" type="text" class="form-control form-control-alternative{{ $errors->has('medicine') ? ' is-invalid' : '' }}" placeholder="@lang('Ex: Losartana ')" required>
-                                    
-
-                                            @if ($errors->has('medicine'))
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('medicine') }}</strong>
-                                                </span>
-                                            @endif
-                                        </div>
-                                </div>
-                                
-                                <hr class="my-4"/>
-
-                                <div class="row">
-
-                                    <div class="col-12 form-group{{ $errors->has('painSensitivity') ? ' has-danger' : '' }}">
-                                        
-                                        <label class="form-control-label" for="input-painSensitivity">@lang('Pain sensitivity level')</label>
-                                        <input type="range" min="0" max="10" name="painSensitivity" id="input-painSensitivity" class="form-control form-control-alternative{{ $errors->has('painSensitivity') ? ' is-invalid' : '' }}" required>
-
-                                        @if ($errors->has('painSensitivity'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('painSensitivity') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                    
-                                </div>
-                                <div class="row">
-
-                                    <div class="col-6 form-group{{ $errors->has('pregnant') ? ' has-danger' : '' }}">
-                                        <label style="padding-right: 10px;" class="form-control-label" for="pregnant">@lang('Pregnant ?')</label>
-                                        <input type="radio" name="pregnant" id="input-pregnant-no" class="btn-check form-control-alternative{{ $errors->has('pregnant') ? ' is-invalid' : '' }}" checked>
-                                        <label class="form-control-label" for="pregnant">@lang('No')</label>
-                                        <input type="radio" name="pregnant" id="input-pregnant-yes" class="btn-check form-control-alternative{{ $errors->has('pregnant') ? ' is-invalid' : '' }}">
-                                        <label class="form-control-label" for="pregnant">@lang('Yes')</label>
-
-                                        @if ($errors->has('pregnant'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('pregnant') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                
-                                </div>
-                                <div class="row">
-                                   
-                                    <div class="col-12 form-group">
-                                        <p class="form-control-label">@lang('Have you ?')</p>
-                                        
-                                        <input type="checkbox" name="pacemaker" id="input-pacemaker" class="btn-check">
-                                        <label class="form-control-label" for="pacemaker" style="padding-right: 30px;">@lang('Pacemaker')</label>
-                                        <input type="checkbox" name="pino" id="input-pinos" class="btn-check">
-                                        <label class="form-control-label" for="highPressure" style="padding-right: 30px;">@lang('Pin')</label>
-                                        <input type="checkbox" name="highPressure" id="input-highPressure" class="btn-check">
-                                        <label class="form-control-label" for="highPressure" style="padding-right: 30px;">@lang('High Pressure')</label>
-                                        <input type="checkbox" name="seizures" id="input-seizures" class="btn-check">
-                                        <label class="form-control-label" for="seizures" style="padding-right: 30px;">@lang('Seizures')</label>
-                                        <input type="checkbox" name="diabetes" id="input-diabetes" class="btn-check">
-                                        <label class="form-control-label" for="diabetes" style="padding-right: 30px;">@lang('Diabetes')</label>
-                                        <br>
-                                        <input type="checkbox" name="carcinogenic" id="input-carcinogenic" class="btn-check">
-                                        <label class="form-control-label" for="carcinogenic" style="padding-right: 30px;">@lang('Carcinogenic Antecedents')</label>
-                                        <input type="checkbox" name="circulatory" id="input-circulatory" class="btn-check">
-                                        <label class="form-control-label" for="circulatory" style="padding-right: 30px;">@lang('circulatory problems')</label>
-
-                                    </div>
-
-                                </div>
-
-                                <hr class="my-4"/>                                
-  
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-success mt-4">@lang('Save')</button>
-                                    <a href="/anaminese/create" class="btn btn-info mt-4">@lang('Next')</a>
-                                </div>
-                            </div>
-                        </form>
-                        
-                    </div>
+                    @empty
+                        <div class="row">
+                            <span class="badge badge-success my-1 ">@lang('Empty List')</span>
+                        </div>
+                    @endforelse
+                   
                 </div>
             </div>
+            {{-- End list --}}
         </div>
-        
-        @include('layouts.footers.auth')
+        <div class="col-xl-8 order-xl-1">
+            <div class="card bg-secondary shadow">
+                {{-- Header and Pacient name --}}
+                <div class="card-header bg-white border-0">
+                    <div class="row align-items-center">
+                        <h3 class="mb-0">@lang('Professional Notes')</h3>
+                    </div>
+                    <div class="py-4">
+                        <h3 class="text-muted">{{ $pacient->name }} {{ $pacient->surname }}</h3>
+                    </div>
+                </div>
+                {{-- End Header and Pacient name --}}
+                {{-- Perfusoes form --}}
+                <div class="card-body">
+                    <h6 class="heading-small text-muted mb-4">@lang('Pacient information')</h6>     
+                
+                    <form method="POST" id="form_perfusao" action="{{ route('peperfusao.store') }}"> {{--  --}}
+                        <div class="row">
+                            @csrf
+                            
+                            <div class="col-4 form-group">
+                               
+                                <label class="" for="perfusao_id">@lang('Perfusion')</label>
+                                <select name="perfusao_id" id="perfusao_id" class="form-control form-control-alternative{{ $errors->has('perfusao_id') ? ' is-invalid' : '' }}" required>
+                                    <option value="">@lang('Select')</option>
+                                    @foreach ($perfusoes as $perfusao )
+                                    <option value="{{ $perfusao->id }}">{{ $perfusao->desc }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="col-4 form-group">
+                                <label class="" for="">@lang('Feets')</label>
+                                <select name="pe_id" id="pe_id" class="form-control form-control-alternative{{ $errors->has('pe_id') ? ' is-invalid' : '' }}" required>
+                                    <option value="">@lang('Select')</option>
+                                    @foreach ($pes as $pe )
+                                    <option value="{{ $pe->id }}">{{ $pe->lado }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="col-2 form-group" style="padding-top: 35px;">
+                                <button class="btn btn-success" id="button_add_perfusao"  type="submit">@lang('Add')</button>
+                            </div>
+                        </div>
+                    </form>
+                    {{-- End Perfusao form --}}
+                        
+                        
+                    <hr class="my-4"/>
+                    
+                    <form method="post" action="{{ route('obsProf.store') }}" autocomplete="off">
+                        @csrf
+                        <div class="row">
+                            {{-- @dd($pacient->id) --}}
+                            <input type="hidden" id="pacient_id" name="pacient_id" value="{{ $pacient->id }}">
+                        
+                            <div class="col-4 form-group{{ $errors->has('pressaoPD') ? ' has-danger' : '' }}">
+                                <label class="form-control-label" for="input-pressaoPD">@lang('Pressão Pé Dir.')<h6>Segundos</h6></label>
+                                <input type="text" name="pressaoPD" id="input-pressaoPD" class="form-control form-control-alternative{{ $errors->has('pressaoPD') ? ' is-invalid' : '' }}" placeholder="@lang('Ex: 12 ')" required>
+                                
+                                @if ($errors->has('pressaoPD'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('pressaoPD') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="col-4 form-group{{ $errors->has('pressaoPE') ? ' has-danger' : '' }}">
+                                <label class="form-control-label" for="input-pressaoPE">@lang('Pressão Pé Esq.')<h6>Segundos</h6></label>
+                                <input type="text" name="pressaoPE" id="input-pressaoPE" class="form-control form-control-alternative{{ $errors->has('pressaoPE') ? ' is-invalid' : '' }}" placeholder="@lang('Ex: 12')" required>
+                                @if ($errors->has('pressaoPE'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('pressaoPE') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 form-group{{ $errors->has('monofilamentoPD') ? ' has-danger' : '' }}">
+                                <label class="form-control-label" for="input-monofilamentoPD">@lang('Right foot monofilament test PD')</label>
+                                <input type="text" name="monofilamentoPD" id="input-monofilamentoPD" class="form-control form-control-alternative{{ $errors->has('monofilamentoPD') ? ' is-invalid' : '' }}" placeholder="" required>
+                                
+                                @if ($errors->has('monofilamentoPD'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('monofilamentoPD') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="col-6 form-group{{ $errors->has('monofilamentoPE') ? ' has-danger' : '' }}">
+                                <label class="form-control-label" for="input-monofilamentoPE">@lang('Left foot monofilament test PE')</label>
+                                <input type="text" name="monofilamentoPE" id="input-monofilamentoPE" class="form-control form-control-alternative{{ $errors->has('monofilamentoPE') ? ' is-invalid' : '' }}" placeholder="" required>
+                                @if ($errors->has('monofilamentoPE'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('monofilamentoPE') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 form-group{{ $errors->has('dermatologicasPD') ? ' has-danger' : '' }}">
+                                <label class="form-control-label" for="input-dermatologicasPD">@lang('Dermatological Pathology PD')</label>
+                                <input type="text" name="dermatologicasPD" id="input-dermatologicasPD" class="form-control form-control-alternative{{ $errors->has('dermatologicasPD') ? ' is-invalid' : '' }}" placeholder="" required>
+                                
+                                @if ($errors->has('dermatologicasPD'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('dermatologicasPD') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="col-6 form-group{{ $errors->has('dermatologicasPE') ? ' has-danger' : '' }}">
+                                <label class="form-control-label" for="input-dermatologicasPE">@lang('Dermatological Pathology PE')</label>
+                                <input type="text" name="dermatologicasPE" id="input-dermatologicasPE" class="form-control form-control-alternative{{ $errors->has('dermatologicasPE') ? ' is-invalid' : '' }}" placeholder="" required>
+                                @if ($errors->has('dermatologicasPE'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('dermatologicasPE') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                            
+                        <div class="row">
+                            <div class="col-6 form-group{{ $errors->has('ungueaisPD') ? ' has-danger' : '' }}">
+                                <label class="form-control-label" for="input-ungueaisPD">@lang('Nail Pathology PD')</label>
+                                <input type="text" name="ungueaisPD" id="input-ungueaisPD" class="form-control form-control-alternative{{ $errors->has('ungueaisPD') ? ' is-invalid' : '' }}" placeholder="" required>
+                                
+                                @if ($errors->has('ungueaisPD'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('ungueaisPD') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="col-6 form-group{{ $errors->has('ungueaisPE') ? ' has-danger' : '' }}">
+                                <label class="form-control-label" for="input-ungueaisPE">@lang('Nail Pathology PE')</label>
+                                <input type="text" name="ungueaisPE" id="input-patologiaUngueaisPE" class="form-control form-control-alternative{{ $errors->has('ungueaisPE') ? ' is-invalid' : '' }}" placeholder="" required>
+                                @if ($errors->has('ungueaisPE'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('ungueaisPE') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <label for="procedimentoProf">@lang('Professional Procedure')</label>
+                            <input  class="form-control" type="textarea" name="procedimentoProf" id="procedimentoProf" rows="4" cols="8">
+                        </div>
+
+                        <hr class="my-4"/>                                
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success mt-4">@lang('Save')</button>
+                        </div>
+                    
+                    </form>
+                    
+                </div>  
+            </div>
+        </div>
     </div>
-  
+
+    @endforeach
+</div>
+<div>
+@include('layouts.footers.auth')
+</div> 
    
 @endsection
 

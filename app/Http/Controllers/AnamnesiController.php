@@ -14,26 +14,26 @@ class AnamnesiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function create($pacient)
     {
-        //
-        $noAnamnesi = DB::table('pacients')->take(8)->where('anamnese', 0)->get();
-
-        return response()->json([
-            'noAnamnesi' => $noAnamnesi,
-        ]);
+        $pacients = Pacient::where('id', $pacient)->get();
         
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-        return view('pages.pacient.anaminese.create');
+        foreach($pacients as $pac){
+            if($pac->anamnese == 1){
+                
+               $anamnesi = Anamnesi::where('pacient_id', $pacient)->get();
+               
+                return  view('pages.pacient.anaminese.create', [
+                    'pacients' => $pacients,
+                    'anamnesi' => $anamnesi
+                ]);
+            }else{
+                return  view('pages.pacient.anaminese.create', [
+                    'pacients' => $pacients,
+                ]);
+        
+            }
+       };
     }
 
     /**
@@ -44,7 +44,19 @@ class AnamnesiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
+        $input = $request->all();
+        //dd($input);
+        Anamnesi::create($input);
+        
+        // UPDATING the value of the column Anamnese 
+        $pacient = Pacient::find($input['pacient_id']);
+        if($pacient){
+            $pacient->anamnese = 1;
+        }
+        $pacient->save();
+        session()->flash('success', 'Anamnese Salva com sucesso!');
+        return redirect()->back();
     }
 
     /**
@@ -56,6 +68,10 @@ class AnamnesiController extends Controller
     public function show(Anamnesi $anamnesi)
     {
         //
+        $pacient = DB::table('pacients')->find('id', $anamnesi)->get();
+        return view('pages.pacient.anaminese.create',[
+            'pacient' => $pacient,
+        ]);
        
     }
 
@@ -79,7 +95,17 @@ class AnamnesiController extends Controller
      */
     public function update(Request $request, Anamnesi $anamnesi)
     {
-        //
+        
+        $anamnese = Anamnesi::find($anamnesi->id);
+        $input = $request->all();
+        
+        $anamnese->update($input);
+        
+        // I used back()->with() becouse without with the flash msg was not going to the view.
+        return back()->with( [
+            'pacient' => $anamnese->pacient_id,
+            'success' => 'Anamnese alterada com  sucesso!'
+        ]); 
     }
 
     /**

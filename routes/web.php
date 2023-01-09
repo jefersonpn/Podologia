@@ -2,13 +2,12 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ObsController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CidadeController;
 use App\Http\Controllers\EstadoController;
 use App\Http\Controllers\PacientController;
 use App\Http\Controllers\AnamnesiController;
 use App\Http\Controllers\PatologyController;
+use App\Http\Controllers\PePerfusaoController;
 use App\Http\Controllers\ObsProfissionalController;
 
 /*
@@ -43,9 +42,14 @@ Route::resource('pacient', PacientController::class);
 // END PACIENT-------------------------------------------------------// 
 
 // ANAMNESI-----------------------------------------------------------//
-Route::resource('anamnesi', AnamnesiController::class);
+Route::get('anamnesi/create/{pacient}', [AnamnesiController::class, 'create'])->name('anamnesi.create');
+Route::post('anamnesi/store', [AnamnesiController::class, 'store'])->name('anamnesi.store');
+Route::get('anamnesi/{pacient}', [AnamnesiController::class, 'show'])->name('anamnesi.show');
+Route::put('anamnesi/{anamnesi}', [AnamnesiController::class, 'update'])->name('anamnesi.update');
+
 // END ANAMNESI-------------------------------------------------------// 
 
+Route::post('obsProf/store', [ObsProfissionalController::class, 'store'])->name('obsProf.store');
 
 
 // ESTADOS------------------------------------------------------------//
@@ -54,14 +58,19 @@ Route::get('estados_show', [EstadoController::class, 'show']);
 
 // CIDADES-----------------------------------------------------------------//
 Route::get('cidades_show/{id_estado}', [CidadeController::class, 'show']);
+Route::get('cidades/{cidade}', [CidadeController::class, 'edit']);
 // END CIDADES-------------------------------------------------------------//
 
 // ANAMINESE-----------------------------------------------------------------//
-Route::get('/anaminese/create', [AnamnesiController::class, 'create']);
-Route::post('/anaminese/store', [AnamnesiController::class, 'store']);
-Route::get('/obs_prof/create', [ObsProfissionalController::class, 'create']);
-
+Route::get('/obs_prof/create/{pacient}', [ObsProfissionalController::class, 'create'])->name('obsProf.create');
 // END ANAMINESE-------------------------------------------------------------//
+
+// PE_PERFUSAO-----------------------------------------------------------------//
+Route::post('/perfusao/store', [PePerfusaoController::class, 'store'])->name('peperfusao.store');
+Route::delete('/perfusao/delete', [PePerfusaoController::class, 'destroy'])->name('peperfusao.delete');
+
+// END PE_PERFUSAO-------------------------------------------------------------//
+
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('user', 'App\Http\Controllers\UserController', [

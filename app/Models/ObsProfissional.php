@@ -12,8 +12,8 @@ class ObsProfissional extends Model
     protected $table = 'obs_profissionals';
     protected $primaryKey = 'id';
 
-    protected $fillables = [
-        'user_id',
+    protected $fillable = [
+        'pacient_id',
         'perfusoes_id',
         'pressaoPD',
         'pressaoPE',
@@ -23,5 +23,11 @@ class ObsProfissional extends Model
         'dermatologicasPE',
         'ungueaisPD',
         'ungueaisPE',
+        'procedimentoProf'
     ];
+
+    public function pacients()
+    {
+        return $this->belongsTo(Pacient::class);
+    }
 }

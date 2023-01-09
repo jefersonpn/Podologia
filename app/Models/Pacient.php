@@ -54,8 +54,13 @@ class Pacient extends Model
         return $this->hasOne(Anamnesi::class);
     }
 
+    public function obsProfs()
+    {
+        return $this->hasOne(Anamnesi::class);
+    }
+    
     public function pes_perfusoes()
     {
-        return $this->hasMany(pes_perfusao::class);
+        return $this->hasMany(pe_perfusao::class);
     }
 }

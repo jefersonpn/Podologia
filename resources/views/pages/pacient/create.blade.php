@@ -8,50 +8,9 @@
     ])   
 
     <div class="container-fluid mt--7">
-        <div class="row">
-            <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
-               {{-- Start --}}
-                <div class="card card-profile shadow">
-                    <div class="row justify-content-center">
-                        <div class=" col-lg-10 text-center h3 mt-4">
-                                @lang('Waiting')
-                                <hr class="my-4"/> 
-                            </div>
-                         
-                        <div class="col-lg-10 order-lg-2">
-                            <br>
-                            <div class="h3">
-                                @lang('Pacients Without Anamnese')
-                            </div>
-                            <div id="noAnamnesi"></div>
-                            <br>
-                            
-                        </div>
-                    </div>
-                    
-                    <hr class="my-4"/>
-
-                    <div class="row justify-content-center pb-4">
-                        <div class="col-lg-10 order-lg-2">
-                            <div class="h3">
-                                @lang('Professional Obs')
-                            </div>
-                            <div>
-                                <div class="d-flex justify-content-between">
-                                    <a href="#" class="btn btn-sm btn-info mr-4 mb-2">Wellen Nascimento</a>
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <a href="#" class="btn btn-sm btn-info mr-4 mb-2">Jeferson Pereira</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    
-                </div>
-               {{-- End --}}
-            </div>
-            <div class="col-xl-8 order-xl-1">
+        <div class="row pb-5">
+            
+            <div class="col-xl-12 order-xl-1">
                 <div class="card bg-secondary shadow">
                     <div class="card-header bg-white border-0">
                         <div class="row align-items-center">
@@ -188,41 +147,8 @@
                                                     <option value="">Selecione</option>
                                                     
                                                 <script>
-
-                                                    $(document).ready(function () 
-                                                    {
-                                                        fetchPacients(); 
-
-                                                        function fetchPacients()
-                                                        {
-                                                            $.ajax(
-                                                                {
-                                                                    type: "GET",
-                                                                    url: "/pacient/create",
-                                                                    //dataType: "json",
-                                                                    success: function (response) 
-                                                                     {
-                                                                         //console.log(response);
-                                                                        $('#anamnese_pacients').html("");
-                                                                        $.each(response.pacients, function (key, pacient)
-                                                                        { 
-                                                                            $('#anamnese_pacients').append(
-                                                                                '<div class=\"d-flex justify-content-between\">\
-                                                                                    <a href=\"#\" class=\"btn btn-sm btn-info mr-4 mb-2\">'+pacient.nome+'</a>\
-                                                                                </div>'
-                                                                            );
-                                                                        });
-                                                                     },
-                                                                    
-                                                                    error: function() {
-                                                                        console.log('Error');
-                                                                    }
-                                                                    
-                                                                });
-                                                            }
-                                                            /* End- Display data */
-                                                    });
-
+                                                    
+                                                    //Get the Pacient list without Anamnesi form compiled 
                                                     $(document).ready(function () 
                                                     {
                                                         fetchPacients(); 
@@ -249,7 +175,53 @@
                                                                             { 
                                                                                 $('#noAnamnesi').append(
                                                                                     '<div class=\"d-flex justify-content-between pt-3\">\
-                                                                                        <a href=\"#\" class=\"btn btn-sm btn-info mr-4 mb-2\">'+noAnamnese.name+' '+noAnamnese.surname+'</a>\
+                                                                                        <form method=\"GET\" action=\"{{ route("anamnesi.show",'+noAnamnese.id+') }}">\
+                                                                                        <button type="submit"  class=\"btn btn-sm btn-danger mr-4 mb-2\">'+noAnamnese.name+' '+noAnamnese.surname+'</button>\
+                                                                                        </form>\
+                                                                                        </div>'
+                                                                                );
+                                                                            });
+                                                                        }
+                                                                        
+                                                                     },
+                                                                    
+                                                                    error: function() {
+                                                                        console.log('Error');
+                                                                    }
+                                                                    
+                                                                });
+                                                            }
+                                                            
+                                                    });
+
+                                                    // Get the Pacient list without OBS PROF
+                                                    $(document).ready(function () 
+                                                    {
+                                                        fetchPacients(); 
+
+                                                        function fetchPacients()
+                                                        {
+                                                            $.ajax(
+                                                                {
+                                                                    type: "GET",
+                                                                    url: "/anamnesi",
+                                                                    //dataType: "json",
+                                                                    success: function (response) 
+                                                                     {
+                                                                         //console.log(response);
+                                                                        $('#noObsProf').html("");
+                                                                        if(response.noObsProf == ''){
+                                                                            $('#noObsProf').append(
+                                                                                '<div class=\"d-flex justify-content-between pt-3 \">\
+                                                                                    <a href=\"#\" class=\"btn btn-sm btn-success mr-4 mb-2\">Nenhuma ficha de Obs Profissional a ser preenchida!</a>\
+                                                                                </div>'
+                                                                            );
+                                                                        }else{
+                                                                            $.each(response.noObsProf, function (key, noObsProf)
+                                                                            { 
+                                                                                $('#noObsProf').append(
+                                                                                    '<div class=\"d-flex justify-content-between pt-3\">\
+                                                                                        <a href=\"#\" class=\"btn btn-sm btn-danger mr-4 mb-2\">'+noObsProf.name+' '+noObsProf.surname+'</a>\
                                                                                     </div>'
                                                                                 );
                                                                             });
@@ -265,8 +237,10 @@
                                                             }
                                                             
                                                     });
+
                                                     
 
+                                                    // Get the citys depending on the state selected
                                                     $(document).on('focusout', '#estado_id', function (e) 
                                                     {
                                                         e.preventDefault();

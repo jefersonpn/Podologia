@@ -15,6 +15,20 @@ class Anamnesi extends Model
     protected $fillable = [
         'pacient_id',
         'profession',
+        'sockType',
+        'shoeType',
+        'legsSurgery',
+        'sport',
+        'medicine',
+        'painSensitivity',
+        'pregnant',
+        'paceMaker',
+        'pino',
+        'highPressure',
+        'seizures',
+        'diabetes',
+        'carcinogenic',
+        'circulatory',
     ];
 
     public function pacients()

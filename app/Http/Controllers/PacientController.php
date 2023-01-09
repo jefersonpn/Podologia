@@ -18,7 +18,8 @@ class PacientController extends Controller
     public function index()
     {
         //
-        return view('pages.pacient.index', ['header' => 2]);
+        $pacients = Pacient::all();
+        return view('pages.pacient.index', ['header' => 2, 'pacients' => $pacients]);
     }
 
     /**
@@ -74,7 +75,7 @@ class PacientController extends Controller
         Pacient::create($input);
 
         session()->flash('success', 'Paciente adicionado com sucesso!');
-        return redirect()->route('pacient.create');
+        return redirect()->route('pacient.index');
         
     }
 
@@ -87,6 +88,16 @@ class PacientController extends Controller
     public function show($id)
     {
         //
+        $sexs = Sex::all();
+        $estados = Estado::all();
+        $civilStates = CivilState::all();
+        $pacient = Pacient::where('id',$id)->get();
+        return view('pages.pacient.show',[
+            'pacient' => $pacient,
+            'civilStates' =>$civilStates,
+            'sexs' => $sexs, 
+            'estados' => $estados,
+        ]);
     }
 
     /**
@@ -110,6 +121,11 @@ class PacientController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $pacient = Pacient::find($id);
+        $input = $request->all();
+        $pacient->update($input);
+        session()->flash('success', 'Paciente alterado com  sucesso!');
+        return redirect()->route('pacient.index'); 
     }
 
     /**
@@ -120,6 +136,8 @@ class PacientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Pacient::destroy($id);
+        session()->flash('error', 'Paciente deletado!');
+        return redirect()->route('pacient.index'); 
     }
 }

@@ -13,20 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('perfusoes', function (Blueprint $table) {
-            $table->id();
-            $table->string('desc');
-            $table->timestamps();
-        });
-
         Schema::create('pe_perfusao', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pacient_id')->constrained('pacients');
-            $table->foreignId('pe_id')->constrained('pes');
-            $table->foreignId('perfusao_id')->constrained('perfusoes');
+            $table->unsignedBigInteger('pacient_id');
+            $table->foreign('pacient_id')->references('id')->on('pacients');
+            $table->unsignedBigInteger('pe_id');
+            $table->foreign('pe_id')->references('id')->on('pes');
+            $table->unsignedBigInteger('perfusao_id');
+            $table->foreign('perfusao_id')->references('id')->on('perfusoes');
             $table->timestamps();
         });
-        
     }
 
     /**
@@ -36,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('perfusaos');
+        //
     }
 };

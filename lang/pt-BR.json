@@ -242,8 +242,26 @@
     "Diagnosis": "Diagnostico",
     "Waiting": "Aguardando",
     "circulatory problems": "Problema de Circulação",
-    "Pacients Without Anamnese": "Pacientes Sem Anamnese",
-    "Professional Obs": "Obs Profissional"
+    "Without Anamnese": "Sem Anamnese",
+    "Without Professional Obs": "Sem Obs Profissional",
+    "Average Ticket": "Ticket Médio",
+    "Filled": "Preenchido",
+    "No filled": "Não preenchido",
+    "Action": "Ação",
+    "Update": "Atualizar",
+    "Show": "Ver",
+    "Perfusion List": "Lista de Perfusão",
+    "Feets": "Pés",
+    "Empty List": "Lista Vazia",
+    "Add": "Adicionar",
+    "Right foot monofilament test PD": "Teste de monofilamento PD",
+    "Left foot monofilament test PE": "Teste de monofilamento PE",
+    "Dermatological Pathology PD": "Patologias Dermatologicas PD",
+    "Dermatological Pathology PE": "Patologias Dermatologicas PE",
+    "Nail Pathology PD": "Patologias Ungueais PD",
+    "Nail Pathology PE": "Patologias Ungueais PE",
+    "Professional Procedure": "Procedimento Profissional"
+   
 
 
 }
