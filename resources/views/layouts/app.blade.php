@@ -22,7 +22,7 @@
         <!-- Custom CSS -->
         {{-- <link type="text/css" href="{{ asset('assets') }}/css/style.css" rel="stylesheet"> --}} 
         <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css?v=').time()}}">
-        <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.1.js" ></script>
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     </head>
     <body class="py-5{{ $class ?? '' }}">
@@ -39,15 +39,10 @@
 
             @if(isset($header) )
                 @switch($header)
-                    @case(1)
+                    @case((1)||(2)||(3))
                         @include('layouts.navbars.navs.registers')
                         @yield('content')
                         @break
-                    @case(2)
-                        @include('layouts.navbars.navs.registers')
-                        @yield('content')
-                        @break
-                        
                 @endswitch
             @else
             @include('layouts.navbars.navbar')
@@ -85,12 +80,12 @@
         @endif
 
         <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
-        <script src="{{ asset('argon') }}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        
+        <script src="{{ asset('argon') }}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>    
         @stack('js')
         
         <!-- Argon JS -->
         <script src="{{ asset('argon') }}/js/argon.js?v=1.0.0"></script>
+        <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
         {{-- My Personal script --}}
         
 </body>

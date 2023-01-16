@@ -6,9 +6,11 @@ use App\Http\Controllers\CidadeController;
 use App\Http\Controllers\EstadoController;
 use App\Http\Controllers\PacientController;
 use App\Http\Controllers\AnamnesiController;
+use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\PatologyController;
 use App\Http\Controllers\PePerfusaoController;
 use App\Http\Controllers\ObsProfissionalController;
+use App\Models\Fornecedor;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,9 +70,18 @@ Route::get('/obs_prof/create/{pacient}', [ObsProfissionalController::class, 'cre
 // PE_PERFUSAO-----------------------------------------------------------------//
 Route::post('/perfusao/store', [PePerfusaoController::class, 'store'])->name('peperfusao.store');
 Route::delete('/perfusao/delete', [PePerfusaoController::class, 'destroy'])->name('peperfusao.delete');
-
 // END PE_PERFUSAO-------------------------------------------------------------//
 
+// FORNECEDOR-----------------------------------------------------------------//
+Route::get('/provider/', [FornecedorController::class, 'index'])->name('provider.index');
+Route::post('/provider/store', [FornecedorController::class, 'store'])->name('provider.store');
+Route::post('/provider/search', [FornecedorController::class, 'requestApi'])->name('provider.showBusca');
+Route::get('/provider/create', [FornecedorController::class, 'create'])->name('provider.create');
+Route::get('/provider/{fornecedor}/edit', [FornecedorController::class, 'edit'])->name('provider.edit');
+Route::delete('/provider/{fornecedor}/delete', [FornecedorController::class, 'destroy'])->name('provider.delete');
+Route::put('/provider/{fornecedor}', [FornecedorController::class, 'update'])->name('provider.update');
+
+// END FORNECEDOR-------------------------------------------------------------//
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('user', 'App\Http\Controllers\UserController', [

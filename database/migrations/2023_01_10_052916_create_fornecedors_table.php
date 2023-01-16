@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('razaoSocial');
             $table->string('nomeFantasia');
-            $table->string('cnpj');
-            $table->string('email');
+            $table->string('cnpj')->nullable();
+            $table->string('email')->nullable();
             $table->string('matrizFilial');
             $table->string('dataFundacao');
             $table->string('mei')->nullable();
@@ -28,14 +28,14 @@ return new class extends Migration
             $table->string('dataSituacao')->nullable();
             $table->string('inscricaoEstadual')->nullable();
             $table->string('inscricaoMunicipal')->nullable();
-            $table->string('telefone');
+            $table->string('telefone')->nullable();
             $table->unsignedBigInteger('estado_id');
             $table->foreign('estado_id')->references('id')->on('estados');
             $table->unsignedBigInteger('cidade_id');
             $table->foreign('cidade_id')->references('id')->on('cidades');
             $table->string('endereco');
             $table->string('numero');
-            $table->string('complemento');
+            $table->string('complemento')->nullable();
             $table->string('cep')->nullable();
             $table->timestamps();
         });

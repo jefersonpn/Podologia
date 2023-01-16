@@ -48,8 +48,7 @@ class CidadeController extends Controller
     { 
         
         $cidades = Cidade::where('estado_id', $id_estado)->get();
-
-        //dd($cidades);
+        
         return response()->json([
             'cidades' => $cidades,
         ]);    

@@ -138,6 +138,12 @@
                         <i class="ni ni-briefcase-24 text-dark"></i> @lang('Service')
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('provider.index') }}">
+                        <i class="ni ni-building text-danger"></i> @lang('Provider')
+                    </a>
+                    
+                </li>
                  </ul>    
                 <hr class="my-2">
                 <ul class="navbar-nav">

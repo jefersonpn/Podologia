@@ -4,12 +4,15 @@
 <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
     <div class="container-fluid">
         <!-- Brand -->
-        <a class="h1 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('home') }}">@switch($header)
+        <a class="h1 mb-0 text-white text-uppercase d-none d-lg-inline-block" @switch($header)
             @case(1)
-                @lang('Pathologys')</a>
+                href="{{ route('home') }}">@lang('Pathologys')<i class="ni ni-fat-add ml-2 text-success"></i><span class="h5 text-success">@lang('(new)')</span></a>
                 @break
             @case(2)
-                @lang('Pacients')</a>
+                href="{{ route('pacient.create') }}">@lang('Pacients')<i class="ni ni-fat-add ml-2 text-danger"></i><span class="h5 text-danger">@lang('(new)')</span></a>
+            @break
+            @case(3)
+                href="{{ route('provider.create') }}">@lang('Provider')<i class="ni ni-fat-add ml-2 text-success"></i><span class="h5 text-success">@lang('(new)')</span></a>
             @break
             
                 

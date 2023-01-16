@@ -260,7 +260,20 @@
     "Dermatological Pathology PE": "Patologias Dermatologicas PE",
     "Nail Pathology PD": "Patologias Ungueais PD",
     "Nail Pathology PE": "Patologias Ungueais PE",
-    "Professional Procedure": "Procedimento Profissional"
+    "Professional Procedure": "Procedimento Profissional",
+    "Provider": "Fornecedor",
+    "Fantasy Name": "Nome Fantasia",
+    "Average Purchase": "Compra Média",
+    "Status": "Status",
+    "Last Purchase": "Ultima Compra",
+    "(new)":"(novo)",
+    "Automatic Provider Register": "Cadastro de Fornecedor",
+    "Search by CNPJ": "Busca por CNPJ",
+    "Search": "Buscar",
+    "Provider information":  "Informação do Fornecedor",
+    "Provider Edit": "Editando dados do fornecedor",
+    "Manual Provider Register": "Cadastro Manual de Fornecedor"
+    
    
 
 

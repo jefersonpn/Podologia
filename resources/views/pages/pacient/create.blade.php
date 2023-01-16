@@ -49,7 +49,7 @@
                                 <div class="row">
                                     <div class="col-6 form-group{{ $errors->has('phone') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-phone">@lang('Phone')</label>
-                                        <input type="tel" name="phone" id="input-phone" class="form-control form-control-alternative{{ $errors->has('phone') ? ' is-invalid' : '' }}" placeholder="@lang('Ex: 67 99120-0010')" required>
+                                        <input type="tel" name="phone" id="input-phone" class="telefone form-control form-control-alternative{{ $errors->has('phone') ? ' is-invalid' : '' }}" placeholder="@lang('Ex: 67 99120-0010')" required>
 
                                         @if ($errors->has('phone'))
                                             <span class="invalid-feedback" role="alert">
@@ -337,6 +337,15 @@
         </div>
         
         @include('layouts.footers.auth')
+
+        <script>
+            $(document).ready(function(){
+               $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
+               $('.telefone').mask('(00) 0000-0000');
+               $('.cep').mask('00000-000');
+               $('.data').mask('00/00/0000');
+            });
+        </script>
     </div>
   
    
