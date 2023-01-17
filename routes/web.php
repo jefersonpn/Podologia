@@ -10,6 +10,8 @@ use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\PatologyController;
 use App\Http\Controllers\PePerfusaoController;
 use App\Http\Controllers\ObsProfissionalController;
+use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\ServicoController;
 use App\Models\Fornecedor;
 
 /*
@@ -80,8 +82,28 @@ Route::get('/provider/create', [FornecedorController::class, 'create'])->name('p
 Route::get('/provider/{fornecedor}/edit', [FornecedorController::class, 'edit'])->name('provider.edit');
 Route::delete('/provider/{fornecedor}/delete', [FornecedorController::class, 'destroy'])->name('provider.delete');
 Route::put('/provider/{fornecedor}', [FornecedorController::class, 'update'])->name('provider.update');
-
 // END FORNECEDOR-------------------------------------------------------------//
+
+// SERVIÇO-----------------------------------------------------------------//
+Route::get('/servico/', [ServicoController::class, 'index'])->name('servico.index');
+Route::post('/servico/store', [ServicoController::class, 'store'])->name('servico.store');
+Route::post('/servico/search', [ServicoController::class, 'requestApi'])->name('servico.showBusca');
+Route::get('/servico/create', [ServicoController::class, 'create'])->name('servico.create');
+Route::get('/servico/{servico}/edit', [ServicoController::class, 'edit'])->name('servico.edit');
+Route::delete('/servico/{servico}/delete', [ServicoController::class, 'destroy'])->name('servico.delete');
+Route::put('/servico/{servico}', [ServicoController::class, 'update'])->name('servico.update');
+// END SERVIÇO-------------------------------------------------------------//
+
+// PRODUTO-----------------------------------------------------------------//
+Route::get('/produto/', [ProdutoController::class, 'index'])->name('produto.index');
+Route::post('/produto/store', [ProdutoController::class, 'store'])->name('produto.store');
+Route::post('/produto/search', [ProdutoController::class, 'requestApi'])->name('produto.showBusca');
+Route::get('/produto/create', [ProdutoController::class, 'create'])->name('produto.create');
+Route::get('/produto/{produto}/edit', [ProdutoController::class, 'edit'])->name('produto.edit');
+Route::delete('/produto/{produto}/delete', [ProdutoController::class, 'destroy'])->name('produto.delete');
+Route::put('/produto/{produto}', [ProdutoController::class, 'update'])->name('produto.update');
+// END PRODUTO-------------------------------------------------------------//
+
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('user', 'App\Http\Controllers\UserController', [

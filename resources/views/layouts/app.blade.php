@@ -39,7 +39,7 @@
 
             @if(isset($header) )
                 @switch($header)
-                    @case((1)||(2)||(3))
+                    @case((1)||(2)||(3)||(4)||(5))
                         @include('layouts.navbars.navs.registers')
                         @yield('content')
                         @break

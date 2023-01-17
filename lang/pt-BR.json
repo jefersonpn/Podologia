@@ -141,7 +141,7 @@
     "Password:": "Senha:",
     "Confirm New Password": "Confirmação da Nova Nenha",
     "Change password": "Trocar Senha",
-    "Services": "Atendimentos",
+    "Calls": "Atendimentos",
     "Since last month": "Desde o último mês",
     "New pacient": "Novos pacientes",
     "Since last week": "Desde a semana passada",
@@ -192,6 +192,7 @@
     "Products":  "Produtos",
     "Product": "Produto",
     "Service": "Serviço",
+    "Services": "Serviços",
     "Finacial": "Financeiro",
     "Pacient information": "Informações do paciente",
     "Pacient Register": "Cadastro de Pacientes",
@@ -272,8 +273,9 @@
     "Search": "Buscar",
     "Provider information":  "Informação do Fornecedor",
     "Provider Edit": "Editando dados do fornecedor",
-    "Manual Provider Register": "Cadastro Manual de Fornecedor"
-    
+    "Manual Provider Register": "Cadastro Manual de Fornecedor",
+    "Services Register": "Cadastro de Serviços",
+    "Products Register": "Cadastro de Produtos"
    
 
 

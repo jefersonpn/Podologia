@@ -12,7 +12,13 @@
                 href="{{ route('pacient.create') }}">@lang('Pacients')<i class="ni ni-fat-add ml-2 text-danger"></i><span class="h5 text-danger">@lang('(new)')</span></a>
             @break
             @case(3)
-                href="{{ route('provider.create') }}">@lang('Provider')<i class="ni ni-fat-add ml-2 text-success"></i><span class="h5 text-success">@lang('(new)')</span></a>
+                href="{{ route('provider.create') }}">@lang('Providers')<i class="ni ni-fat-add ml-2 text-success"></i><span class="h5 text-success">@lang('(new)')</span></a>
+            @break
+            @case(4)
+                href="{{ route('servico.create') }}">@lang('Services')<i class="ni ni-fat-add ml-2 text-success"></i><span class="h5 text-success">@lang('(new)')</span></a>
+            @break
+            @case(5)
+                href="{{ route('produto.create') }}">@lang('Products')<i class="ni ni-fat-add ml-2 text-success"></i><span class="h5 text-success">@lang('(new)')</span></a>
             @break
             
                 
