@@ -1,7 +1,7 @@
 @extends('layouts.app', ['title' => __('User Profile')])
 
 @section('content')
-    @include('pages.provider.partials.header', [
+    @include('pages.product.partials.header', [
         'title' => __('Hello') . ' '. auth()->user()->name,
         'description' => __('This is your profile page. You can see update your details and manage your account'),
         'class' => 'col-lg-7'
@@ -140,7 +140,7 @@
                                       </span>
                                   @endif
                           </div>
-                          <div class="col-2 form-group{{ $errors->has('situacao') ? ' has-danger' : '' }}">
+                          <div class="col-1 form-group{{ $errors->has('situacao') ? ' has-danger' : '' }}">
                             <label class="form-control-label" for="input-situacao">@lang('Status')</label>
                             <input disabled type="text" name="situacao" id="input-situacao" class="form-control form-control-alternative{{ $errors->has('situacao') ? ' is-invalid' : '' }}" value="{{ $providers['situacao'] }}" required>
                             @if ($errors->has('situacao'))
@@ -166,7 +166,7 @@
                                   </span>
                               @endif
                           </div>
-                          <div class="col-2 form-group{{ $errors->has('cidade_id') ? ' has-danger' : '' }}">
+                          <div class="col-3 form-group{{ $errors->has('cidade_id') ? ' has-danger' : '' }}">
                               <label class="form-control-label" for="city_id">@lang('City')</label>
                               <select disabled name="cidade_id" id="cidade_id"class="form-control form-control-alternative{{ $errors->has('cidade_id') ? ' is-invalid' : '' }}" required>
                                   <option value="">Selecione</option>

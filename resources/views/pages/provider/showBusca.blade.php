@@ -141,7 +141,7 @@
                                       </span>
                                   @endif
                           </div>
-                          <div class="col-1 form-group{{ $errors->has('situacao') ? ' has-danger' : '' }}">
+                          <div class="col-2 form-group{{ $errors->has('situacao') ? ' has-danger' : '' }}">
                             <label class="form-control-label" for="input-situacao">@lang('Status')</label>
                             <input disabled type="text" name="situacao" id="input-situacao" class="form-control form-control-alternative{{ $errors->has('situacao') ? ' is-invalid' : '' }}" value="{{ $providers['situacao'] }}" required>
                             <input type="hidden" name="situacao" value="{{ $providers['situacao'] }}" >
@@ -169,7 +169,7 @@
                                   </span>
                               @endif
                           </div>
-                          <div class="col-3 form-group{{ $errors->has('cidade_id') ? ' has-danger' : '' }}">
+                          <div class="col-2 form-group{{ $errors->has('cidade_id') ? ' has-danger' : '' }}">
                               <label class="form-control-label" for="city_id">@lang('City')</label>
                               <input type="hidden" name="cidade_id" value="{{ $providers['cidade_id'] }}" >
                               <select disabled name="cidade_id" id="cidade_id"class="form-control form-control-alternative{{ $errors->has('cidade_id') ? ' is-invalid' : '' }}" required>
@@ -258,7 +258,7 @@
                                   </span>
                               @endif
                           </div>
-                          <div class="col-2 form-group{{ $errors->has('numero') ? ' has-danger' : '' }}">
+                          <div class="col-1 form-group{{ $errors->has('numero') ? ' has-danger' : '' }}">
                               <label class="form-control-label" for="input-numero">@lang('Number')</label>
                               <input type="hidden" name="numero" value="{{ $providers['numero'] }}" >
                               <input disabled type="text" name="numero" id="input-numero" value="{{ $providers['numero'] }}" class="form-control form-control-alternative{{ $errors->has('numero') ? ' is-invalid' : '' }}" required>
@@ -269,7 +269,7 @@
                                   </span>
                               @endif
                           </div>
-                          <div class="col-2 form-group{{ $errors->has('complemento') ? ' has-danger' : '' }}">
+                          <div class="col-3 form-group{{ $errors->has('complemento') ? ' has-danger' : '' }}">
                               <label class="form-control-label" for="input-complemento">@lang('Complemento')</label>
                               <input type="hidden" name="complemento" value="{{ $providers['complemento'] }}" >
                               <input type="text" name="complemento" id="input-complemento" value="{{ $providers['complemento'] }}" class="form-control form-control-alternative{{ $errors->has('complemento') ? ' is-invalid' : '' }}" >

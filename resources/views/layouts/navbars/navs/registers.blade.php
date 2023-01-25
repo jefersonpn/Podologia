@@ -4,7 +4,8 @@
 <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
     <div class="container-fluid">
         <!-- Brand -->
-        <a class="h1 mb-0 text-white text-uppercase d-none d-lg-inline-block" @switch($header)
+        <a class="h1 mb-0 text-white text-uppercase d-none d-lg-inline-block" 
+        @switch($header)
             @case(1)
                 href="{{ route('home') }}">@lang('Pathologys')<i class="ni ni-fat-add ml-2 text-success"></i><span class="h5 text-success">@lang('(new)')</span></a>
                 @break
@@ -20,7 +21,9 @@
             @case(5)
                 href="{{ route('produto.create') }}">@lang('Products')<i class="ni ni-fat-add ml-2 text-success"></i><span class="h5 text-success">@lang('(new)')</span></a>
             @break
-            
+            @case(6)
+                href="{{ route('financeiro.index') }}">@lang('Finacial')</a>
+            @break
                 
         @endswitch 
         <!-- Form -->

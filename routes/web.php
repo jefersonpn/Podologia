@@ -6,6 +6,7 @@ use App\Http\Controllers\CidadeController;
 use App\Http\Controllers\EstadoController;
 use App\Http\Controllers\PacientController;
 use App\Http\Controllers\AnamnesiController;
+use App\Http\Controllers\FinanceiroController;
 use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\PatologyController;
 use App\Http\Controllers\PePerfusaoController;
@@ -85,7 +86,7 @@ Route::put('/provider/{fornecedor}', [FornecedorController::class, 'update'])->n
 // END FORNECEDOR-------------------------------------------------------------//
 
 // SERVIÇO-----------------------------------------------------------------//
-Route::get('/servico/', [ServicoController::class, 'index'])->name('servico.index');
+Route::get('/servico', [ServicoController::class, 'index'])->name('servico.index');
 Route::post('/servico/store', [ServicoController::class, 'store'])->name('servico.store');
 Route::post('/servico/search', [ServicoController::class, 'requestApi'])->name('servico.showBusca');
 Route::get('/servico/create', [ServicoController::class, 'create'])->name('servico.create');
@@ -103,6 +104,16 @@ Route::get('/produto/{produto}/edit', [ProdutoController::class, 'edit'])->name(
 Route::delete('/produto/{produto}/delete', [ProdutoController::class, 'destroy'])->name('produto.delete');
 Route::put('/produto/{produto}', [ProdutoController::class, 'update'])->name('produto.update');
 // END PRODUTO-------------------------------------------------------------//
+
+// FINANCEIRO-----------------------------------------------------------------//
+Route::get('/financeiro/', [FinanceiroController::class, 'index'])->name('financeiro.index');
+Route::post('/financeiro/store', [FinanceiroController::class, 'store'])->name('financeiro.store');
+Route::post('/financeiro/search', [FinanceiroController::class, 'requestApi'])->name('financeiro.showBusca');
+Route::get('/financeiro/create', [FinanceiroController::class, 'create'])->name('financeiro.create');
+Route::get('/financeiro/{financeiro}/edit', [FinanceiroController::class, 'edit'])->name('financeiro.edit');
+Route::delete('/financeiro/{financeiro}/delete', [FinanceiroController::class, 'destroy'])->name('financeiro.delete');
+Route::put('/financeiro/{financeiro}', [FinanceiroController::class, 'update'])->name('financeiro.update');
+// END FINANCEIRO-------------------------------------------------------------//
 
 
 Route::group(['middleware' => 'auth'], function () {

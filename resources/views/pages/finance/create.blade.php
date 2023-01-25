@@ -1,7 +1,7 @@
 @extends('layouts.app', ['title' => __('User Profile')])
 
 @section('content')
-    @include('pages.provider.partials.header', [
+    @include('pages.product.partials.header', [
         'title' => __('Hello') . ' '. auth()->user()->name,
         'description' => __('This is your profile page. You can see update your details and manage your account'),
         'class' => 'col-lg-7'
@@ -15,7 +15,7 @@
                     
                     <div class="card-header bg-white border-0">
                         <div class="row align-items-center">
-                            <h3 class="mb-0">@lang('Automatic Provider Register')</h3>
+                            <h3 class="mb-0">@lang('Products Register')</h3>
                         </div>
                     </div>
                     
@@ -178,7 +178,7 @@
                                                 </span>
                                             @endif
                                     </div>
-                                    <div class="col-2 form-group{{ $errors->has('situacao') ? ' has-danger' : '' }}">
+                                    <div class="col-1 form-group{{ $errors->has('situacao') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-situacao">@lang('Status')</label>
                                         <select name="situacao" id="situacao"class="form-control form-control-alternative{{ $errors->has('situacao') ? ' is-invalid' : '' }}" required>
                                                 <option value='' selected >Selecione</option>

@@ -275,8 +275,17 @@
     "Provider Edit": "Editando dados do fornecedor",
     "Manual Provider Register": "Cadastro Manual de Fornecedor",
     "Services Register": "Cadastro de Serviços",
-    "Products Register": "Cadastro de Produtos"
-   
+    "Products Register": "Cadastro de Produtos",
+    "Profit":"Lucro",
+    "Last Sale": "Última Venda",
+    "Medium Ticket" : "Ticket Médio",
+    "Today's Bills" : "Contas de Hoje",
+    "Today's Receipts" : "Recebimento de Hoje",
+    "Total Attendances" : "Total de Atendimentos",
+    "Performace" : "Atuação",
+    "Lasts Attendances" : "Últimos Atendimentos",
+    "Visits N°" : "N° de Visitas",
+    "Date" : "Data"
 
 
 }

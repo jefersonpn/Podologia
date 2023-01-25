@@ -87,7 +87,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('financeiro.index') }}">
                         <i class="ni ni-money-coins text-success"></i>
                         @lang('Finacial')
                     </a>
@@ -129,12 +129,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">
+                    <a class="nav-link" href="{{ route('produto.index') }}">
                         <i class="ni ni-cart text-info"></i> @lang('Products')
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">
+                    <a class="nav-link" href="{{ route('servico.index') }}">
                         <i class="ni ni-briefcase-24 text-dark"></i> @lang('Service')
                     </a>
                 </li>

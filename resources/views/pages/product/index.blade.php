@@ -12,41 +12,42 @@
                         <table class="table align-items-center">
                             <thead class="thead-light">
                                 <tr>
-                                    <th scope="col" class="sort" data-sort="budget">@lang('Fantasy Name')</th>
-                                    <th scope="col" class="sort" data-sort="status">@lang('Phone')</th>
-                                    <th scope="col">@lang('Status')</th>
-                                    <th scope="col">@lang('Last Purchase')</th>
+                                    <th scope="col" class="sort" data-sort="budget">@lang('Nome')</th>
+                                    <th scope="col" class="sort" data-sort="status">@lang('Categoria')</th>
+                                    <th scope="col">@lang('Profit %')</th>
+                                    <th scope="col">@lang('Last Sale')</th>
                                     <th scope="col"></th>
                                     <th scope="col">@lang('Action')</th>
                                 </tr>
                             </thead>
                             <tbody class="list">
                                 
-                                @foreach ($providers as $provider ) 
+                                {{-- @foreach ($providers as $provider )  --}}
                                 <tr>
                                     <th scope="row">
                                         <div class="media align-items-center">
-                                           
                                             <div class="media-body">
-                                                <span class="name mb-0 text-sm"> {{ $provider->nomeFantasia }}</span>
+                                                <span class="name mb-0 text-sm">Esmalte</span>
                                             </div>
                                         </div>
                                     </th>
                                     <td class="budget">
-                                            <p class="telefone mt-3">{{ $provider->telefone }}</p>
+                                            <div class="media-body">
+                                                <span class="name mb-0 text-sm">Acessorio</span>
+                                            </div>
                                     </td>
                                     <td>
-                                        @if($provider->situacao == 'ATIVA')
+                                        {{-- @if($provider->situacao == 'ATIVA') --}}
                                             <span class="badge badge-dot mr-4">
                                             <i class="bg-success"></i>
-                                            <span class="status text-success">{{ $provider->situacao }}</span>
+                                            <span class="status text-success">90%</span>
                                             </span>
-                                            @else
+                                            {{-- @else
                                              <span class="badge badge-dot mr-4">
                                             <i class="bg-danger"></i>
                                             <span class="status text-danger">{{ $provider->situacao }}</span>
                                             </span>
-                                        @endif
+                                        @endif --}}
                                     </td>
                                     <td>
                                         {{-- @if($pacient->obsProf != 0) --}}
@@ -73,14 +74,14 @@
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                                 <div class=" d-flex justify-content-start mx-2 my-2">
-                                                <a class=" btn btn-sm btn-info" href="{{ route('provider.edit', $provider->id) }}">@lang('Show')</a>
+                                                <a class=" btn btn-sm btn-info" href="#">@lang('Show')</a>
                                                 </div>
                                                 <hr class="p-0 m-0"/>
                                                 <div class=" d-flex justify-content-start mx-2 my-2">
-                                                    <form action="{{ route('provider.delete', $provider->id) }}" method="POST">
+                                                    <form action="#" method="POST">
                                                         {{ method_field('DELETE') }}
                                                         @csrf
-                                                        <input type="hidden" name="provider_id" id="provider_id" value="{{ $provider->id }}">
+                                                        <input type="hidden" name="provider_id" id="provider_id" value="">
                                                         <button type="submit" class="btn btn-sm btn-danger">@lang('Delete')</button>
                                                     </form>
                                                 </div>
@@ -88,15 +89,12 @@
                                         </div>
                                     </td>
                                 </tr>                    
-                                @endforeach
+                                {{-- @endforeach --}}
                     
                             </tbody>
                         </table>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-4">
-                
             </div>
         </div>
 

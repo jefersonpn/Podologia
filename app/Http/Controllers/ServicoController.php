@@ -14,7 +14,7 @@ class ServicoController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.service.index', ['header' => 4]);
     }
 
     /**
