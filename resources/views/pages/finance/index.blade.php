@@ -62,7 +62,7 @@
 
         </div>
         <div class="row mt-5">
-            <div class="col-xl-8 mb-5 mb-xl-0">
+            <div class="col-xl-7 mb-5 mb-xl-4">
                 <div class="card shadow">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
@@ -177,12 +177,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4">
+            <div class="col-xl-5">
                 <div class="card shadow">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h3 class="mb-0">Social traffic</h3>
+                                <h3 class="mb-0">@lang('Profit by Pathology')</h3>
                             </div>
                             <div class="col text-right">
                                 <a href="#!" class="btn btn-sm btn-primary">See all</a>
@@ -194,15 +194,15 @@
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
-                                    <th scope="col">Referral</th>
-                                    <th scope="col">Visitors</th>
+                                    <th scope="col">@lang('Pathology')</th>
+                                    <th scope="col">@lang('Pacient')</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <th scope="row">
-                                        Facebook
+                                        Onicomicose
                                     </th>
                                     <td>
                                         1,480
@@ -220,7 +220,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">
-                                        Facebook
+                                        Onicocriptose
                                     </th>
                                     <td>
                                         5,480
@@ -238,7 +238,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">
-                                        Google
+                                        Onicogrifose
                                     </th>
                                     <td>
                                         4,807
@@ -256,7 +256,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">
-                                        Instagram
+                                        Pé Plano
                                     </th>
                                     <td>
                                         3,678
@@ -274,7 +274,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">
-                                        twitter
+                                        Verrugas Plantares
                                     </th>
                                     <td>
                                         2,645

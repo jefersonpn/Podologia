@@ -1,6 +1,29 @@
 <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
     <div class="container-fluid">
         <div class="header-body">
+            <div class="row mb-4">
+                <div class="col">
+                    <button class="btn btn-success text-uppercase mb-0">@lang('Bills')<i class="fas fa-plus text-white ml-2"></i></button>
+                </div>
+                <div class="col ml--6">
+                    <button class="btn btn-success text-uppercase mb-0">@lang('Receipts')<i class="fas fa-plus text-white ml-2"></i></button>
+                </div>
+                <div class="col">
+                    {{-- <button class="btn btn-success text-uppercase mb-0">@lang('Register Bills')<i class="fas fa-plus text-white ml-2"></i></button> --}}
+                </div>
+                <div class="col">
+                    {{-- <button class="btn btn-success text-uppercase mb-0">@lang('Register Bills')<i class="fas fa-plus text-white ml-2"></i></button> --}}
+                </div>
+                <div class="col">
+                    {{-- <button class="btn btn-success text-uppercase mb-0">@lang('Register Bills')<i class="fas fa-plus text-white ml-2"></i></button> --}}
+                </div>
+                <div class="col">
+                    {{-- <button class="btn btn-success text-uppercase mb-0">@lang('Register Bills')<i class="fas fa-plus text-white ml-2"></i></button> --}}
+                </div>
+                <div class="col">
+                    {{-- <button class="btn btn-success text-uppercase mb-0">@lang('Register Bills')<i class="fas fa-plus text-white ml-2"></i></button> --}}
+                </div>
+            </div>
             <!-- Card stats -->
             <div class="row">
                 <div class="col-xl-3 col-lg-6">
@@ -88,6 +111,7 @@
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
 </div>

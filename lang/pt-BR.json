@@ -285,7 +285,11 @@
     "Performace" : "Atuação",
     "Lasts Attendances" : "Últimos Atendimentos",
     "Visits N°" : "N° de Visitas",
-    "Date" : "Data"
+    "Date" : "Data",
+    "Register Bills" : "Cadastrar Conta",
+    "Profit by Pathology" : "Lucro por Patologia",
+    "Bills" : "Contas",
+    "Receipts" : "Recebimentos"
 
 
 }
