@@ -33,11 +33,11 @@ class ObsProfissionalController extends Controller
         // dd($pesperfusoes);
 
         foreach ($pacients as $pac) {
-           
+
             if ($pac->obsProf == '1') {
-                
+
                 $obsProfs = ObsProfissional::where('pacient_id', $pacient)->limit(1)->get();
-                
+
                 return  view('pages.pacient.obs_prof.create', [
                     'pacients' => $pacients,
                     'perfusoes' => $perfusoes,
@@ -46,7 +46,7 @@ class ObsProfissionalController extends Controller
                     'obsProfs' => $obsProfs
                 ]);
             }else{
-                
+
                 return  view('pages.pacient.obs_prof.create', [
                     'pacients' => $pacients,
                     'perfusoes' => $perfusoes,
@@ -55,7 +55,7 @@ class ObsProfissionalController extends Controller
                 ]);
             }
         };
-        
+
     }
 
     /**
@@ -70,7 +70,7 @@ class ObsProfissionalController extends Controller
         //dd($input);
         ObsProfissional::create($input);
 
-        // UPDATING the value of the column Anamnese 
+        // UPDATING the value of the column Anamnese
         $pacient = Pacient::find($input['pacient_id']);
         if ($pacient) {
             $pacient->obsProf = 1;
@@ -82,7 +82,7 @@ class ObsProfissionalController extends Controller
 
     public function storePerfusao(Request $request)
     {
-        
+
     }
 
     /**
@@ -114,20 +114,19 @@ class ObsProfissionalController extends Controller
      * @param  \App\Models\ObsProfissional  $obsProfissional
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ObsProfissional $obsProfissional)
+    public function update(Request $request, $obsProf)
     {
-        //dd($request);
-
-        $obsProf = ObsProfissional::find($request->pacient_id);
-        $input = $request->all();
-        //dd($input);
-        $obsProf->update($input);
         //dd($obsProf);
-        // I used back()->with() becouse without with the flash msg was not going to the view.
-        return back()->with([
-            'pacient' => $obsProf->pacient_id,
-            'success' => 'Observação alterada com  sucesso!'
-        ]); 
+        //dd($request->pacient_id);
+
+        $data = ObsProfissional::find($obsProf);
+        //$input = $request->all();
+        //dd($data);
+        $data->update($request->all());
+        //dd($obsProf);
+
+        session()->flash('success', 'Observação alterada com sucesso!');
+        return redirect()->route('pacient.index');
     }
 
     /**

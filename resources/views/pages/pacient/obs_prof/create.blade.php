@@ -5,7 +5,7 @@
         'title' => __('Hello') . ' '. auth()->user()->name,
         'description' => __('This is your profile page. You can see update your details and manage your account'),
         'class' => 'col-lg-7'
-    ])   
+    ])
 
 <div class="container-fluid mt--7">
 {{-- @dd($obsProfs) --}}
@@ -26,7 +26,7 @@
                             <form method="post" action="{{ route('peperfusao.delete') }}">
                                 @csrf
                                 @method('DELETE')
-                                
+
                                 <input type="hidden"  name="pe_perfusao_id"  value="{{ $pe_perfusao->id }}">
                                 <button type="submit" class="btn btn-danger btn-sm my-1">x</button>
                                 @if($pe_perfusao->desc == "Normal")
@@ -41,7 +41,7 @@
                             <span class="badge badge-success my-1 ">@lang('Empty List')</span>
                         </div>
                     @endforelse
-                   
+
                 </div>
             </div>
     {{-- End list --}}
@@ -60,12 +60,12 @@
             {{-- End Header and Pacient name --}}
             {{-- Perfusoes form --}}
             <div class="card-body">
-                <h6 class="heading-small text-muted mb-4">@lang('Pacient information')</h6>     
-            
-                <form method="POST" id="form_perfusao" action="{{ route('peperfusao.store', $obsProf->id ) }}"> 
+                <h6 class="heading-small text-muted mb-4">@lang('Pacient information')</h6>
+
+                <form method="POST" id="form_perfusao" action="{{ route('peperfusao.store', $obsProf->id ) }}">
                     <div class="row">
                         @csrf
-                        
+
                         <div class="col-4 form-group">
                             <input type="hidden" id="pacient_id" name="pacient_id" value="{{ $pacient->id }}">
                             <label class="" for="perfusao_id">@lang('Perfusion')</label>
@@ -93,8 +93,8 @@
                     </div>
                 </form>
             {{-- End Perfusao form --}}
-                    
-                    
+
+
                 <hr class="my-4"/>
                 
                 <form method="post" action="{{ route('obsProf.update', $obsProf->id) }}" autocomplete="off">
@@ -103,11 +103,11 @@
                     <div class="row">
                         {{-- @dd($pacient->id) --}}
                         <input type="hidden" id="pacient_id" name="pacient_id" value="{{ $pacient->id }}">
-                    
+
                         <div class="col-4 form-group{{ $errors->has('pressaoPD') ? ' has-danger' : '' }}">
                             <label class="form-control-label" for="input-pressaoPD">@lang('Pressão Pé Dir.')<h6>Segundos</h6></label>
                             <input type="text" name="pressaoPD" id="input-pressaoPD" class="form-control form-control-alternative{{ $errors->has('pressaoPD') ? ' is-invalid' : '' }}" value="{{ $obsProf->pressaoPD }}" required>
-                            
+
                             @if ($errors->has('pressaoPD'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('pressaoPD') }}</strong>
@@ -129,7 +129,7 @@
                         <div class="col-6 form-group{{ $errors->has('monofilamentoPD') ? ' has-danger' : '' }}">
                             <label class="form-control-label" for="input-monofilamentoPD">@lang('Right foot monofilament test PD')</label>
                             <input type="text" name="monofilamentoPD" id="input-monofilamentoPD" class="form-control form-control-alternative{{ $errors->has('monofilamentoPD') ? ' is-invalid' : '' }}" value="{{ $obsProf->monofilamentoPD }}" required>
-                            
+
                             @if ($errors->has('monofilamentoPD'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('monofilamentoPD') }}</strong>
@@ -151,7 +151,7 @@
                         <div class="col-6 form-group{{ $errors->has('dermatologicasPD') ? ' has-danger' : '' }}">
                             <label class="form-control-label" for="input-dermatologicasPD">@lang('Dermatological Pathology PD')</label>
                             <input type="text" name="dermatologicasPD" id="input-dermatologicasPD" class="form-control form-control-alternative{{ $errors->has('dermatologicasPD') ? ' is-invalid' : '' }}" value="{{ $obsProf->dermatologicasPD }}" required>
-                            
+
                             @if ($errors->has('dermatologicasPD'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('dermatologicasPD') }}</strong>
@@ -168,12 +168,12 @@
                             @endif
                         </div>
                     </div>
-                        
+
                     <div class="row">
                         <div class="col-6 form-group{{ $errors->has('ungueaisPD') ? ' has-danger' : '' }}">
                             <label class="form-control-label" for="input-ungueaisPD">@lang('Nail Pathology PD')</label>
                             <input type="text" name="ungueaisPD" id="input-ungueaisPD" class="form-control form-control-alternative{{ $errors->has('ungueaisPD') ? ' is-invalid' : '' }}" value="{{ $obsProf->ungueaisPD }}" required>
-                            
+
                             @if ($errors->has('ungueaisPD'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('ungueaisPD') }}</strong>
@@ -196,15 +196,15 @@
                         <input  class="form-control" type="textarea" name="procedimentoProf" id="procedimentoProf" rows="4" cols="8" value="{{ $obsProf->procedimentoProf }}">
                     </div>
 
-                    <hr class="my-4"/>                                
+                    <hr class="my-4"/>
 
                     <div class="text-center">
                         <button type="submit" class="btn btn-success mt-4">@lang('Update')</button>
                     </div>
-                
+
                 </form>
-                
-            </div>  
+
+            </div>
         </div>
     </div>
     </div>
@@ -240,7 +240,7 @@
                             <span class="badge badge-success my-1 ">@lang('Empty List')</span>
                         </div>
                     @endforelse
-                
+
                 </div>
             </div>
             {{-- End list --}}
@@ -259,12 +259,12 @@
                 {{-- End Header and Pacient name --}}
                 {{-- Perfusoes form --}}
                 <div class="card-body">
-                    <h6 class="heading-small text-muted mb-4">@lang('Pacient information')</h6>     
-                
+                    <h6 class="heading-small text-muted mb-4">@lang('Pacient information')</h6>
+
                     <form method="POST" id="form_perfusao" action="{{ route('peperfusao.store') }}"> {{--  --}}
                         <div class="row">
                             @csrf
-                            
+
                             <div class="col-4 form-group">
                             <input type="hidden" id="pacient_id" name="pacient_id" value="{{ $pacient->id }}">
                                 <label class="" for="perfusao_id">@lang('Perfusion')</label>
@@ -292,20 +292,20 @@
                         </div>
                     </form>
                     {{-- End Perfusao form --}}
-                        
-                        
+
+
                     <hr class="my-4"/>
-                    
+
                     <form method="post" action="{{ route('obsProf.store') }}" autocomplete="off">
                         @csrf
                         <div class="row">
                             {{-- @dd($pacient->id) --}}
                             <input type="hidden" id="pacient_id" name="pacient_id" value="{{ $pacient->id }}">
-                        
+
                             <div class="col-4 form-group{{ $errors->has('pressaoPD') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-pressaoPD">@lang('Pressão Pé Dir.')<h6>Segundos</h6></label>
                                 <input type="text" name="pressaoPD" id="input-pressaoPD" class="form-control form-control-alternative{{ $errors->has('pressaoPD') ? ' is-invalid' : '' }}" placeholder="@lang('Ex: 12 ')" required>
-                                
+
                                 @if ($errors->has('pressaoPD'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('pressaoPD') }}</strong>
@@ -327,7 +327,7 @@
                             <div class="col-6 form-group{{ $errors->has('monofilamentoPD') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-monofilamentoPD">@lang('Right foot monofilament test PD')</label>
                                 <input type="text" name="monofilamentoPD" id="input-monofilamentoPD" class="form-control form-control-alternative{{ $errors->has('monofilamentoPD') ? ' is-invalid' : '' }}" placeholder="" required>
-                                
+
                                 @if ($errors->has('monofilamentoPD'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('monofilamentoPD') }}</strong>
@@ -349,7 +349,7 @@
                             <div class="col-6 form-group{{ $errors->has('dermatologicasPD') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-dermatologicasPD">@lang('Dermatological Pathology PD')</label>
                                 <input type="text" name="dermatologicasPD" id="input-dermatologicasPD" class="form-control form-control-alternative{{ $errors->has('dermatologicasPD') ? ' is-invalid' : '' }}" placeholder="" required>
-                                
+
                                 @if ($errors->has('dermatologicasPD'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('dermatologicasPD') }}</strong>
@@ -366,12 +366,12 @@
                                 @endif
                             </div>
                         </div>
-                            
+
                         <div class="row">
                             <div class="col-6 form-group{{ $errors->has('ungueaisPD') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-ungueaisPD">@lang('Nail Pathology PD')</label>
                                 <input type="text" name="ungueaisPD" id="input-ungueaisPD" class="form-control form-control-alternative{{ $errors->has('ungueaisPD') ? ' is-invalid' : '' }}" placeholder="" required>
-                                
+
                                 @if ($errors->has('ungueaisPD'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('ungueaisPD') }}</strong>
@@ -394,15 +394,15 @@
                             <input  class="form-control" type="textarea" name="procedimentoProf" id="procedimentoProf" rows="4" cols="8">
                         </div>
 
-                        <hr class="my-4"/>                                
+                        <hr class="my-4"/>
 
                         <div class="text-center">
                             <button type="submit" class="btn btn-success mt-4">@lang('Save')</button>
                         </div>
-                    
+
                     </form>
-                    
-                </div>  
+
+                </div>
             </div>
         </div>
   </div>
@@ -411,6 +411,6 @@
 </div>
 <div>
 @include('layouts.footers.auth')
-</div> 
-   
+</div>
+
 @endsection
