@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('pe_perfusao', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('pacient_id');
-            $table->foreign('pacient_id')->references('id')->on('pacients');
+            $table->foreign('pacient_id')->references('id')->on('pacients')->onDelete('cascade');
             $table->unsignedBigInteger('pe_id');
             $table->foreign('pe_id')->references('id')->on('pes');
             $table->unsignedBigInteger('perfusao_id');

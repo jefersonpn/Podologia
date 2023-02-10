@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Anamnesi;
 use App\Models\CivilState;
 use App\Models\Sex;
 use App\Models\Estado;
 use App\Models\Pacient;
 use Illuminate\Http\Request;
+use League\CommonMark\Reference\Reference;
 
 class PacientController extends Controller
 {
@@ -16,8 +18,8 @@ class PacientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        
+    {
+
         $pacients = Pacient::all();
         //@dd($pacients);
         foreach($pacients as $pacient){
@@ -82,7 +84,7 @@ class PacientController extends Controller
         // $cap = $request->input('cep');
 
         // dd("Name: " . $name, "Surname: " . $surname, "Phone: " . $phone, "DataOfBith: " . $dob, "Email: " . $email, "Sex: " . $sex, "State: " . $state, "City: " . $city, "Address: " . $address,  "Number: " . $number, "Cap: " . $cap);
-        
+
         //dd($request);
         //Getting all inputs values from the form create Pacient and saving in DB.
         $input = $request->all();
@@ -90,7 +92,7 @@ class PacientController extends Controller
 
         session()->flash('success', 'Paciente adicionado com sucesso!');
         return redirect()->route('pacient.index');
-        
+
     }
 
     /**
@@ -109,7 +111,7 @@ class PacientController extends Controller
         return view('pages.pacient.show',[
             'pacient' => $pacient,
             'civilStates' =>$civilStates,
-            'sexs' => $sexs, 
+            'sexs' => $sexs,
             'estados' => $estados,
         ]);
     }
@@ -139,7 +141,7 @@ class PacientController extends Controller
         $input = $request->all();
         $pacient->update($input);
         session()->flash('success', 'Paciente alterado com  sucesso!');
-        return redirect()->route('pacient.index'); 
+        return redirect()->route('pacient.index');
     }
 
     /**
@@ -152,6 +154,6 @@ class PacientController extends Controller
     {
         Pacient::destroy($id);
         session()->flash('error', 'Paciente deletado!');
-        return redirect()->route('pacient.index'); 
+        return redirect()->route('pacient.index');
     }
 }

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('obs_profissionals', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('pacient_id');
-            $table->foreign('pacient_id')->references('id')->on('pacients');
+            $table->foreign('pacient_id')->references('id')->on('pacients')->onDelete('cascade');
             $table->string('pressaoPD');
             $table->string('pressaoPE');
             $table->string('monofilamentoPD');
