@@ -5,7 +5,7 @@
         'title' => __('Hello') . ' '. auth()->user()->name,
         'description' => __('This is your profile page. You can see update your details and manage your account'),
         'class' => 'col-lg-7'
-    ])   
+    ])
 
     <div class="container-fluid mt--7">
 @if(isset($anamnesi))
@@ -27,7 +27,7 @@
                             @csrf
                             @method('PUT')
                             <h6 class="heading-small text-muted mb-4">@lang('Pacient information')</h6>
-                            
+
                             <div class="pl-lg-4">
                                 <div class="row">
                                     <input type="hidden" name="pacient_id" value="{{ $pacient->id }}">
@@ -41,7 +41,7 @@
                                             </span>
                                         @endif
                                     </div>
-                                    
+
                                 </div>
                                 <div class="row">
                                     <div class="col-6 form-group{{ $errors->has('sockType') ? ' has-danger' : '' }}">
@@ -70,7 +70,7 @@
                                     <div class="col-12 form-group{{ $errors->has('legsSurgery') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-legsSurgery">@lang('Have you had any surgery on your lower limbs?')</label>
                                         <input name="legsSurgery" id="input-legsSurgery" type="text" class="form-control form-control-alternative{{ $errors->has('legsSurgery') ? ' is-invalid' : '' }}" value="{{ $anamnese->legsSurgery }}" required>
-                                
+
 
                                         @if ($errors->has('legsSurgery'))
                                             <span class="invalid-feedback" role="alert">
@@ -84,7 +84,7 @@
                                          <div class="col-6 form-group{{ $errors->has('sport') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="input-sport">@lang('Do you practice any sport?')</label>
                                             <input name="sport" id="input-sport" type="text" class="form-control form-control-alternative{{ $errors->has('sport') ? ' is-invalid' : '' }}" value="{{ $anamnese->sport }}" required>
-                                    
+
 
                                             @if ($errors->has('sport'))
                                                 <span class="invalid-feedback" role="alert">
@@ -95,7 +95,7 @@
                                         <div class="col-6 form-group{{ $errors->has('medicine') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="input-sport">@lang('Do you take any medicine?')</label>
                                             <input name="medicine" id="input-medicine" type="text" class="form-control form-control-alternative{{ $errors->has('medicine') ? ' is-invalid' : '' }}" value="{{ $anamnese->medicine }}" required>
-                                    
+
 
                                             @if ($errors->has('medicine'))
                                                 <span class="invalid-feedback" role="alert">
@@ -104,13 +104,13 @@
                                             @endif
                                         </div>
                                 </div>
-                                
+
                                 <hr class="my-4"/>
 
                                 <div class="row">
 
                                     <div class="col-12 form-group{{ $errors->has('painSensitivity') ? ' has-danger' : '' }}">
-                                        
+
                                         <label class="form-control-label" for="input-painSensitivity">@lang('Pain sensitivity level')</label>
                                         <input type="range" min="0" max="10" name="painSensitivity" id="input-painSensitivity" value="{{ $anamnese->painSensitivity }}" class="form-control form-control-alternative{{ $errors->has('painSensitivity') ? ' is-invalid' : '' }}" required>
 
@@ -120,10 +120,10 @@
                                             </span>
                                         @endif
                                     </div>
-                                    
+
                                 </div>
                                 <div class="row">
-                                    
+
                                     <div class="col-6 form-group{{ $errors->has('pregnant') ? ' has-danger' : '' }}">
                                         <label style="padding-right: 10px;" class="form-control-label" for="pregnant">@lang('Pregnant ?')</label>
                                         <input type="radio" name="pregnant" value="0" id="input-pregnant-no"  @if( $anamnese->pregnant  == '0' ) checked @endif class="btn-check form-control-alternative{{ $errors->has('pregnant') ? ' is-invalid' : '' }}" >
@@ -137,13 +137,13 @@
                                             </span>
                                         @endif
                                     </div>
-                                
+
                                 </div>
                                 <div class="row">
-                                   
+
                                     <div class="col-12 form-group">
                                         <p class="form-control-label">@lang('Have you ?')</p>
-                                        
+
                                         <input type="checkbox" name="paceMaker" id="paceMaker" class="btn-check" {{ $anamnese->paceMaker == 'on' ? 'checked' : '' }}>
                                         <label class="form-control-label" for="paceMaker" style="padding-right: 30px;">@lang('Pacemaker')</label>
                                         <input type="checkbox" name="pino" id="input-pinos" class="btn-check" {{  $anamnese->pino  == 'on' ? 'checked' : ''  }}>
@@ -164,15 +164,15 @@
 
                                 </div>
 
-                                <hr class="my-4"/>                                
-  
+                                <hr class="my-4"/>
+
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success mt-4">@lang('Update')</button>
                                     <a href="{{ route('obsProf.create', $pacient->id) }}" class="btn btn-info mt-4">@lang('Notes')</a>
                                 </div>
                             </div>
                         </form>
-                        
+
                     </div>
                 </div>
             </div>
@@ -181,7 +181,7 @@
   @endforeach
 @else
     @foreach ($pacients as $pacient )
-        <div class="row">
+        <div class="row pb-5" style="margin-bottom: 30px;">
             <div class="col-xl-12 order-xl-1">
                 <div class="card bg-secondary shadow">
                     <div class="card-header bg-white border-0">
@@ -196,7 +196,7 @@
                         <form method="post" action="{{ route('anamnesi.store') }}" autocomplete="off">
                             @csrf
                             <h6 class="heading-small text-muted mb-4">@lang('Pacient information')</h6>
-                            
+
                             <div class="pl-lg-4">
                                 <div class="row">
                                     <input type="hidden" name="pacient_id" value="{{ $pacient->id }}">
@@ -210,7 +210,7 @@
                                             </span>
                                         @endif
                                     </div>
-                                    
+
                                 </div>
                                 <div class="row">
                                     <div class="col-6 form-group{{ $errors->has('sockType') ? ' has-danger' : '' }}">
@@ -239,7 +239,7 @@
                                     <div class="col-12 form-group{{ $errors->has('legsSurgery') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-legsSurgery">@lang('Have you had any surgery on your lower limbs?')</label>
                                         <input name="legsSurgery" id="input-legsSurgery" type="text" class="form-control form-control-alternative{{ $errors->has('legsSurgery') ? ' is-invalid' : '' }}" placeholder="@lang('Ex: Nos pés')" required>
-                                
+
 
                                         @if ($errors->has('legsSurgery'))
                                             <span class="invalid-feedback" role="alert">
@@ -253,7 +253,7 @@
                                          <div class="col-6 form-group{{ $errors->has('sport') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="input-sport">@lang('Do you practice any sport?')</label>
                                             <input name="sport" id="input-sport" type="text" class="form-control form-control-alternative{{ $errors->has('sport') ? ' is-invalid' : '' }}" placeholder="@lang('Ex: Futebol, Natação')" required>
-                                    
+
 
                                             @if ($errors->has('sport'))
                                                 <span class="invalid-feedback" role="alert">
@@ -264,7 +264,7 @@
                                         <div class="col-6 form-group{{ $errors->has('medicine') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="input-sport">@lang('Do you take any medicine?')</label>
                                             <input name="medicine" id="input-medicine" type="text" class="form-control form-control-alternative{{ $errors->has('medicine') ? ' is-invalid' : '' }}" placeholder="@lang('Ex: Losartana ')" required>
-                                    
+
 
                                             @if ($errors->has('medicine'))
                                                 <span class="invalid-feedback" role="alert">
@@ -273,13 +273,13 @@
                                             @endif
                                         </div>
                                 </div>
-                                
+
                                 <hr class="my-4"/>
 
                                 <div class="row">
 
                                     <div class="col-12 form-group{{ $errors->has('painSensitivity') ? ' has-danger' : '' }}">
-                                        
+
                                         <label class="form-control-label" for="input-painSensitivity">@lang('Pain sensitivity level')</label>
                                         <input type="range" min="0" max="10" name="painSensitivity" id="input-painSensitivity" class="form-control form-control-alternative{{ $errors->has('painSensitivity') ? ' is-invalid' : '' }}" required>
 
@@ -289,7 +289,7 @@
                                             </span>
                                         @endif
                                     </div>
-                                    
+
                                 </div>
                                 <div class="row">
 
@@ -306,13 +306,13 @@
                                             </span>
                                         @endif
                                     </div>
-                                
+
                                 </div>
                                 <div class="row">
-                                   
+
                                     <div class="col-12 form-group">
                                         <p class="form-control-label">@lang('Have you ?')</p>
-                                        
+
                                         <input type="checkbox" name="paceMaker" id="input-paceMaker" class="btn-check">
                                         <label class="form-control-label" for="paceMaker" style="padding-right: 30px;">@lang('Pacemaker')</label>
                                         <input type="checkbox" name="pino" id="input-pinos" class="btn-check">
@@ -333,26 +333,26 @@
 
                                 </div>
 
-                                <hr class="my-4"/>                                
-  
+                                <hr class="my-4"/>
+
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success mt-4">@lang('Save')</button>
                                     <a href="{{ route('obsProf.create', $pacient->id) }}" class="btn btn-info mt-4">@lang('Notes')</a>
                                 </div>
                             </div>
                         </form>
-                        
+
                     </div>
                 </div>
             </div>
         </div>
     @endforeach
 @endif
-        
+
         @include('layouts.footers.auth')
     </div>
-  
-   
+
+
 @endsection
 
 

@@ -7,7 +7,7 @@
         'class' => 'col-lg-7'
     ])
 
-<div class="container-fluid mt--7">
+<div class="container-fluid mt--7 pb-4" style="margin-bottom: 50px;">
 {{-- @dd($obsProfs) --}}
 @if(isset($obsProfs))
   @foreach($obsProfs as $obsProf)
@@ -96,7 +96,7 @@
 
 
                 <hr class="my-4"/>
-                
+
                 <form method="post" action="{{ route('obsProf.update', $obsProf->id) }}" autocomplete="off">
                     @csrf
                     @method('PUT')
