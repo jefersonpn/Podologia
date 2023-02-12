@@ -25,7 +25,7 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.product.create', ['header' => 5]);
     }
 
     /**

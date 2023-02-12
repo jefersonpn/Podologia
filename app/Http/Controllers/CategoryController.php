@@ -35,7 +35,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Category::create($input);
+
+        session()->flash('success', 'Categoria adicionada com sucesso!');
+        return redirect()->back();
     }
 
     /**
@@ -46,7 +50,10 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        $categories = Category::all();
+        return response()->json([
+            'categories' => $categories
+        ]);
     }
 
     /**

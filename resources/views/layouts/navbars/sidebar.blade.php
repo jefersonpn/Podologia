@@ -38,8 +38,8 @@
                         <i class="ni ni-support-16"></i>
                         <span>{{ __('Support') }}</span>
                     </a>
-                    
-                    
+
+
                     <div class="dropdown-divider"></div>
                     <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
@@ -92,7 +92,7 @@
                         @lang('Finacial')
                     </a>
                 </li>
-            </ul>    
+            </ul>
             <hr class="my-2">
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -129,12 +129,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('produto.index') }}">
+                    <a class="nav-link" href="{{ route('product.index') }}">
                         <i class="ni ni-cart text-info"></i> @lang('Products')
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('servico.index') }}">
+                    <a class="nav-link" href="{{ route('service.index') }}">
                         <i class="ni ni-briefcase-24 text-dark"></i> @lang('Service')
                     </a>
                 </li>
@@ -142,9 +142,9 @@
                     <a class="nav-link" href="{{ route('provider.index') }}">
                         <i class="ni ni-building text-danger"></i> @lang('Provider')
                     </a>
-                    
+
                 </li>
-                 </ul>    
+                 </ul>
                 <hr class="my-2">
                 <ul class="navbar-nav">
                  <li class="nav-item">
@@ -182,28 +182,11 @@
                         </ul>
                     </div>
                 </li>
-
-                {{-- <li class="nav-item">
-                    <a class="nav-link" href="{{ route('icons') }}">
-                        <i class="ni ni-planet text-blue"></i> {{ __('Icons') }}
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="{{ route('map') }}">
-                        <i class="ni ni-pin-3 text-orange"></i> {{ __('Maps') }}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('table') }}">
-                      <i class="ni ni-bullet-list-67 text-default"></i>
-                      <span class="nav-link-text">Tables</span>
-                    </a>
-                </li> --}}
             </ul>
 
             <hr class="my-3">
-                
-            <ul class="navbar-nav">    
+
+            <ul class="navbar-nav">
                 <li class="nav-item mb-2 mr-4 ml-3 pl-2 pt-2">
                     <button class="btn btn-icon btn-3 btn-success" type="button">
                         <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>

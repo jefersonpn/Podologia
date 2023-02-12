@@ -49,7 +49,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // PACIENT-----------------------------------------------------------//
     Route::resource('pacient', PacientController::class);
-    // END PACIENT-------------------------------------------------------// 
+    // END PACIENT-------------------------------------------------------//
 
     // ANAMNESI-----------------------------------------------------------//
     Route::get('anamnesi/create/{pacient}', [AnamnesiController::class, 'create'])->name('anamnesi.create');
@@ -57,7 +57,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('anamnesi/{pacient}', [AnamnesiController::class, 'show'])->name('anamnesi.show');
     Route::put('anamnesi/{anamnesi}', [AnamnesiController::class, 'update'])->name('anamnesi.update');
 
-    // END ANAMNESI-------------------------------------------------------// 
+    // END ANAMNESI-------------------------------------------------------//
 
     Route::post('obsProf/store', [ObsProfissionalController::class, 'store'])->name('obsProf.store');
     Route::put('obsProf/{obsProf}', [ObsProfissionalController::class, 'update'])->name('obsProf.update');
@@ -91,23 +91,23 @@ Route::group(['middleware' => 'auth'], function () {
     // END FORNECEDOR-------------------------------------------------------------//
 
     // SERVIÇO-----------------------------------------------------------------//
-    Route::get('/servico', [ServicoController::class, 'index'])->name('servico.index');
-    Route::post('/servico/store', [ServicoController::class, 'store'])->name('servico.store');
-    Route::post('/servico/search', [ServicoController::class, 'requestApi'])->name('servico.showBusca');
-    Route::get('/servico/create', [ServicoController::class, 'create'])->name('servico.create');
-    Route::get('/servico/{servico}/edit', [ServicoController::class, 'edit'])->name('servico.edit');
-    Route::delete('/servico/{servico}/delete', [ServicoController::class, 'destroy'])->name('servico.delete');
-    Route::put('/servico/{servico}', [ServicoController::class, 'update'])->name('servico.update');
+    Route::get('/servico', [ServicoController::class, 'index'])->name('service.index');
+    Route::post('/servico/store', [ServicoController::class, 'store'])->name('service.store');
+    Route::post('/servico/search', [ServicoController::class, 'requestApi'])->name('service.showBusca');
+    Route::get('/servico/create', [ServicoController::class, 'create'])->name('service.create');
+    Route::get('/servico/{servico}/edit', [ServicoController::class, 'edit'])->name('service.edit');
+    Route::delete('/servico/{servico}/delete', [ServicoController::class, 'destroy'])->name('service.delete');
+    Route::put('/servico/{servico}', [ServicoController::class, 'update'])->name('service.update');
     // END SERVIÇO-------------------------------------------------------------//
 
     // PRODUTO-----------------------------------------------------------------//
-    Route::get('/produto/', [ProdutoController::class, 'index'])->name('produto.index');
-    Route::post('/produto/store', [ProdutoController::class, 'store'])->name('produto.store');
-    Route::post('/produto/search', [ProdutoController::class, 'requestApi'])->name('produto.showBusca');
-    Route::get('/produto/create', [ProdutoController::class, 'create'])->name('produto.create');
-    Route::get('/produto/{produto}/edit', [ProdutoController::class, 'edit'])->name('produto.edit');
-    Route::delete('/produto/{produto}/delete', [ProdutoController::class, 'destroy'])->name('produto.delete');
-    Route::put('/produto/{produto}', [ProdutoController::class, 'update'])->name('produto.update');
+    Route::get('/produto/', [ProdutoController::class, 'index'])->name('product.index');
+    Route::post('/produto/store', [ProdutoController::class, 'store'])->name('product.store');
+    Route::post('/produto/search', [ProdutoController::class, 'requestApi'])->name('product.showBusca');
+    Route::get('/produto/create', [ProdutoController::class, 'create'])->name('product.create');
+    Route::get('/produto/{produto}/edit', [ProdutoController::class, 'edit'])->name('product.edit');
+    Route::delete('/produto/{produto}/delete', [ProdutoController::class, 'destroy'])->name('product.delete');
+    Route::put('/produto/{produto}', [ProdutoController::class, 'update'])->name('product.update');
     // END PRODUTO-------------------------------------------------------------//
 
     // FINANCEIRO-----------------------------------------------------------------//
@@ -120,7 +120,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/financeiro/{financeiro}', [FinanceiroController::class, 'update'])->name('financeiro.update');
 // END FINANCEIRO-------------------------------------------------------------//
 
-    
+
     Route::resource('user', 'App\Http\Controllers\UserController', [
         'except' => ['show'],
     ]);

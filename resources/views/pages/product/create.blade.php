@@ -1,29 +1,25 @@
-@extends('layouts.app', ['title' => __('User Profile')])
+@extends('layouts.app')
 
 @section('content')
-    @include('pages.product.partials.header', [
-        'title' => __('Hello') . ' '. auth()->user()->name,
-        'description' => __('This is your profile page. You can see update your details and manage your account'),
-        'class' => 'col-lg-7'
-    ])   
+    @include('pages.product.partials.header')
 
     <div class="container-fluid mt--7">
         <div class="row pb-5">
-            
+
             <div class="col-xl-12 order-xl-1">
                 <div class="card bg-secondary shadow">
-                    
+
                     <div class="card-header bg-white border-0">
                         <div class="row align-items-center">
                             <h3 class="mb-0">@lang('Products Register')</h3>
                         </div>
                     </div>
-                    
+
                     <div class="card-body">
-                        <form method="post" action="{{ route('provider.showBusca') }}" autocomplete="off">
+                        <form method="post" action="#" autocomplete="off">
                             @csrf
-                            <h6 class="heading-small text-muted mb-4">@lang('Search by CNPJ')</h6>
-                            
+                            <h6 class="heading-small text-muted mb-4">@lang('Category')</h6>
+
                             <div class="pl-lg-4">
                                 <div class="row">
                                     <div class="col-4 form-group{{ $errors->has('cnpj') ? ' has-danger' : '' }}">
@@ -45,14 +41,14 @@
                         </form>
                     </div>
 
-                    <div class="card-header bg-white border-0">
+                    {{-- <div class="card-header bg-white border-0">
                         <div class="row align-items-center">
                             <h3 class="mb-0">@lang('Mannual Provider Register')</h3>
                         </div>
                     </div>
 
                     <div class="card-body">
-                        <form method="post" action="{{ route('provider.store') }}" autocomplete="off">
+                        <form method="post" action="#" autocomplete="off">
                             @csrf
                             <h6 class="heading-small text-muted mb-4">@lang('Manual Provider Register')</h6>
                             <div class="pl-lg-4">
@@ -67,7 +63,7 @@
                                             </span>
                                         @endif
                                     </div>
-                                        
+
                                     <div class="col-3 form-group{{ $errors->has('razaoSocial') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-razaoSocial">@lang('Razao Social')</label>
                                         <input type="text" name="razaoSocial" id="input-razaoSocial" size="50px" class="form-control form-control-alternative{{ $errors->has('razaoSocial') ? ' is-invalid' : '' }}" required autofocus>
@@ -160,16 +156,16 @@
                                 </div>
 
                                 <hr class="my-4"/>
-                        
+
                                 <div class="row">
-                            
+
                                     <div class="col-2 form-group{{ $errors->has('simplesNacional') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="simplesNacional">@lang('Simples Nacional')</label>
                                         <select name="simplesNacional" id="simplesNacional"class="form-control form-control-alternative{{ $errors->has('simplesNacional') ? ' is-invalid' : '' }}" required>
                                                 <option value='' selected >Selecione</option>
                                                 <option value='1'>Sim</option>
                                                 <option value='0'>Não</option>
-                                            
+
                                         </select>
 
                                             @if ($errors->has('simplesNacional'))
@@ -184,7 +180,7 @@
                                                 <option value='' selected >Selecione</option>
                                                 <option value='ATIVA'>ATIVA</option>
                                                 <option value='DESATIVADA'>DESATIVADA</option>
-                                            
+
                                         </select>
                                     </div>
                                     <div class="col-3 form-group{{ $errors->has('estado_id') ? ' has-danger' : '' }}">
@@ -206,39 +202,6 @@
                                         <label class="form-control-label" for="city_id">@lang('City')</label>
                                         <select name="cidade_id" id="cidade_id"class="form-control form-control-alternative{{ $errors->has('cidade_id') ? ' is-invalid' : '' }}" required>
                                             <option value="">Selecione</option>
-                                            
-                                    <script>
-
-                                        $(document).on('focusout', '#estado_id', function (e) 
-                                            {
-                                                e.preventDefault();
-                                                var id_estado = $(this).val();
-                                                console.log(id_estado);
-                                                showCidades(); //Calling the function to display data.
-                                                /* Display the data table from the database */
-                                                function showCidades()
-                                                {
-                                                    $.ajax(
-                                                        {
-                                                            type: "GET",
-                                                            url: "/cidades_show/"+id_estado,
-                                                            dataType: "json",
-                                                            success: function (response) 
-                                                            {
-                                                                //console.log(response);
-                                                                $('#cidade_id').html("");
-                                                                $.each(response.cidades, function (key, cidade) 
-                                                                { 
-                                                                    $('#cidade_id').append
-                                                                    (
-                                                                        '<option value='+cidade.id+'>'+cidade.nome+'</option>'
-                                                                    );
-                                                                });
-                                                            }
-                                                        });
-                                                }
-                                            })
-                                    </script>
                                         </select>
 
                                         @if ($errors->has('cidade_id'))
@@ -257,7 +220,7 @@
                                             </span>
                                         @endif
                                     </div>
-                                            
+
                                 </div>
                                 <div class="row">
 
@@ -295,10 +258,10 @@
                                         <button type="submit" class="btn btn-success mt-4">@lang('Save')</button>
                                     </div>
                                 </div>
-                            </div>       
+                            </div>
                         </form>
-                    </div>
-                    
+                    </div> --}}
+
                 </div>
             </div>
         </div>
@@ -311,7 +274,7 @@
                $('.data').mask('00/00/0000');
             });
         </script>
-        
+
     </div>
 
 @endsection
