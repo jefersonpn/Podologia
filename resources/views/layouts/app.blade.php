@@ -26,8 +26,9 @@
         <script src="https://code.jquery.com/jquery-3.6.1.js" ></script>
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <script defer src="{{ asset('assets') }}/js/toast.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
     </head>
-    <body class="{{ $class ?? '' }}">
+    <body class="{{ $class ?? '' }} spaceBody">
 
 
         @auth()

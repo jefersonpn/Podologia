@@ -291,7 +291,19 @@
     "Bills" : "Contas",
     "Receipts" : "Recebimentos",
     "Fundation date": "Data da Fundação",
-    "Category": "Categoria"
+    "Category": "Categoria",
+    "Categories List": "Lista de Categorias",
+    "Product Details": "Informações do Produto",
+    "Select a category or add a new one": "Selecione uma categoria ou crie uma nova",
+    "Category name": "Nome da Categoria",
+    "Supplier": "Fornecedor",
+    "Product Code": "Codigo do Produto",
+    "Cost price": "Preço de custo",
+    "Sale price": "Preço de venda",
+    "Profit in %": "Lucro em %",
+    "Quantity": "Quantidade"
+
+
 
 
 }

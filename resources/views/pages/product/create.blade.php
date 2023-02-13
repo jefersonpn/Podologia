@@ -6,7 +6,7 @@
     <div class="container-fluid mt--7">
         <div class="row pb-5">
 
-            <div class="col-xl-12 order-xl-1">
+            <div class="col-xl-6 order-xl-1">
                 <div class="card bg-secondary shadow">
 
                     <div class="card-header bg-white border-0">
@@ -18,252 +18,149 @@
                     <div class="card-body">
                         <form method="post" action="#" autocomplete="off">
                             @csrf
-                            <h6 class="heading-small text-muted mb-4">@lang('Category')</h6>
+                            <h6 class="heading-small text-muted mb-4">@lang('Product Details')</h6>
 
                             <div class="pl-lg-4">
                                 <div class="row">
-                                    <div class="col-4 form-group{{ $errors->has('cnpj') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-name">@lang('CNPJ')</label>
-                                        <input type="text" name="cnpj" id="cnpj" class="cnpj form-control form-control-alternative{{ $errors->has('cnpj') ? ' is-invalid' : '' }}" placeholder="00.000.000/0000-00" required autofocus>
-
-                                        @if ($errors->has('cnpj'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('cnpj') }}</strong>
-                                            </span>
-                                        @endif
+                                    <div class="col-6">
+                                        <label for="name" class="form-control-label pt-3">@lang('Name')</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Ex: Algodão">
                                     </div>
-                                    <div class="col-4 mt-2">
-                                    <button type="submit" class="btn btn-success mt-4">@lang('Search')</button>
-                                    </div>
-                                </div>
-                                <hr class="my-4"/>
-                            </div>
-                        </form>
-                    </div>
-
-                    {{-- <div class="card-header bg-white border-0">
-                        <div class="row align-items-center">
-                            <h3 class="mb-0">@lang('Mannual Provider Register')</h3>
-                        </div>
-                    </div>
-
-                    <div class="card-body">
-                        <form method="post" action="#" autocomplete="off">
-                            @csrf
-                            <h6 class="heading-small text-muted mb-4">@lang('Manual Provider Register')</h6>
-                            <div class="pl-lg-4">
-                                <div class="row">
-
-                                    <div class="col-3 form-group{{ $errors->has('nomeFantasia') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-nomeFantasia">@lang('Nome Fantasia')</label>
-                                        <input type="text" name="nomeFantasia" id="input-nomeFantasia" size="50px" class="form-control form-control-alternative{{ $errors->has('nomeFantasia') ? ' is-invalid' : '' }}" required autofocus>
-                                        @if ($errors->has('nomeFantasia'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('nomeFantasia') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-
-                                    <div class="col-3 form-group{{ $errors->has('razaoSocial') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-razaoSocial">@lang('Razao Social')</label>
-                                        <input type="text" name="razaoSocial" id="input-razaoSocial" size="50px" class="form-control form-control-alternative{{ $errors->has('razaoSocial') ? ' is-invalid' : '' }}" required autofocus>
-                                        @if ($errors->has('razaoSocial'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('razaoSocial') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-
-                                    <div class="col-3 form-group{{ $errors->has('cnpj') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-cnpj">@lang('CNPJ')</label>
-                                        <input type="text" name="cnpj" id="input-cnpj" class="cnpj form-control form-control-alternative{{ $errors->has('cnpj') ? ' is-invalid' : '' }}" required>
-                                        @if ($errors->has('cnpj'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('cnpj') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-
-                                    <div class="col-2 form-group{{ $errors->has('telefone') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-telefone">@lang('Phone')</label>
-                                        <input type="telefone" name="telefone" id="input-telefone" class="telefone form-control form-control-alternative{{ $errors->has('telefone') ? ' is-invalid' : '' }}" required>
-                                        @if ($errors->has('telefone'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('telefone') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-
-                                    <div class="col-2 form-group{{ $errors->has('matrizFilial') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="matrizFilial">@lang('Matriz ou  Filial')</label>
-                                        <select name="matrizFilial" id="matrizFilial"class="form-control form-control-alternative{{ $errors->has('matrizFilial') ? ' is-invalid' : '' }}" required>
-                                            <option value='' selected>Selecione</option>
-                                            <option value='MATRIZ'>Matriz</option>
-                                            <option value='FILIAL'>Filial</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-3 form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-email">@lang('Email')</label>
-                                        <input type="email" name="email" id="input-email" class="form-control form-control-alternative{{ $errors->has('email') ? ' is-invalid' : '' }}">
-                                        @if ($errors->has('email'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('email') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-
-                                    <div class="col-2 form-group{{ $errors->has('dataFundacao') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-dataFundacao">@lang('Fundation date')</label>
-                                        <input type="data" name="dataFundacao" id="input-dataFundacao" class=" data form-control form-control-alternative{{ $errors->has('dataFundacao') ? ' is-invalid' : '' }}" required>
-                                        @if ($errors->has('dataFundacao'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('dataFundacao') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-
-                                    <div class="col-2 form-group{{ $errors->has('mei') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="mei">@lang('MEI')</label>
-                                        <select name="mei" id="mei"class="form-control form-control-alternative{{ $errors->has('mei') ? ' is-invalid' : '' }}" required>
-                                            <option value='' selected>Selecione</option>
-                                            <option value=''>Não</option>
-                                            <option value='true'>Sim</option>
-                                        </select>
-
-                                            @if ($errors->has('mei'))
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('mei') }}</strong>
-                                                </span>
-                                            @endif
-                                    </div>
-
-                                    <div class="col-2 form-group{{ $errors->has('porte') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-porte">@lang('Porte')</label>
-                                        <select name="porte" id="porte"class="form-control form-control-alternative{{ $errors->has('porte') ? ' is-invalid' : '' }}" required>
-                                            <option value='' selected>Selecione</option>
-                                            <option value='Grande'>Grande</option>
-                                            <option value='Medio'>Médio</option>
-                                            <option value='Pequeno'>Pequeno</option>
-                                        </select>
-                                        @if ($errors->has('porte'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('porte') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-
-                                </div>
-
-                                <hr class="my-4"/>
-
-                                <div class="row">
-
-                                    <div class="col-2 form-group{{ $errors->has('simplesNacional') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="simplesNacional">@lang('Simples Nacional')</label>
-                                        <select name="simplesNacional" id="simplesNacional"class="form-control form-control-alternative{{ $errors->has('simplesNacional') ? ' is-invalid' : '' }}" required>
-                                                <option value='' selected >Selecione</option>
-                                                <option value='1'>Sim</option>
-                                                <option value='0'>Não</option>
-
-                                        </select>
-
-                                            @if ($errors->has('simplesNacional'))
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('simplesNacional') }}</strong>
-                                                </span>
-                                            @endif
-                                    </div>
-                                    <div class="col-1 form-group{{ $errors->has('situacao') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-situacao">@lang('Status')</label>
-                                        <select name="situacao" id="situacao"class="form-control form-control-alternative{{ $errors->has('situacao') ? ' is-invalid' : '' }}" required>
-                                                <option value='' selected >Selecione</option>
-                                                <option value='ATIVA'>ATIVA</option>
-                                                <option value='DESATIVADA'>DESATIVADA</option>
-
-                                        </select>
-                                    </div>
-                                    <div class="col-3 form-group{{ $errors->has('estado_id') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-state">@lang('State')</label>
-                                        <select name="estado_id" id="estado_id"class="form-control form-control-alternative{{ $errors->has('estado_id') ? ' is-invalid' : '' }}" required>
-                                            <option value=''>Selecione</option>
-                                            @foreach ($estados as $estado )
-                                            <option value='{{ $estado->id }}'>{{ $estado->nome }}</option>
+                                    <div class="col-6">
+                                        <label for="supplier" class="form-control-label pt-3">@lang('Supplier')</label>
+                                        <select class="form-control" aria-label="Default select example">
+                                            <option selected>@lang('Select')</option>
+                                            @foreach ($suppliers as $supplier)
+                                                <option value="{{ $supplier->id }}">{{ $supplier->nomeFantasia }}</option>
                                             @endforeach
                                         </select>
-
-                                        @if ($errors->has('estado_id'))
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="col-6 form-group{{ $errors->has('category') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label pt-3" for="input-name">@lang('Category')</label>
+                                        <h6 class="heading-small text-muted mb-4">@lang('Select a category or add a new one')</h6>
+                                        <div class="input-group">
+                                            <select class="form-control form-select{{ $errors->has('category') ? ' is-invalid' : '' }}" id="category" aria-label="Example select with button addon">
+                                                <option selected>@lang('Select')</option>
+                                                @foreach ($categories as $category )
+                                                <option value="{{ $category->id }}">{{ ucfirst(trans($category->desc)) }}</option>
+                                                @endforeach
+                                            </select>
+                                            {{-- @dd(session('success')) --}}
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-outline-success addCategoryButton border" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
+                                            <i class="ni ni-fat-add"></i>
+                                            </button>
+                                            @if ($errors->has('category'))
                                             <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('estado_id') }}</strong>
+                                                <strong>{{ $errors->first('category') }}</strong>
                                             </span>
-                                        @endif
-                                    </div>
-                                    <div class="col-3 form-group{{ $errors->has('cidade_id') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="city_id">@lang('City')</label>
-                                        <select name="cidade_id" id="cidade_id"class="form-control form-control-alternative{{ $errors->has('cidade_id') ? ' is-invalid' : '' }}" required>
-                                            <option value="">Selecione</option>
-                                        </select>
+                                            @endif
 
-                                        @if ($errors->has('cidade_id'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors -> first('cidade_id') }}</strong>
-                                        </span>
-                                        @endif
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="categoryRegister" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                    <form method="POST" id="addCategory" action="{{ route('category.store') }}" >
+                                                        @csrf
+                                                        @method('POST')
+                                                        <div class="modal-header">
+                                                            <h2 class="modal-title" id="categoryRegister">@lang('Register Category')</h2>
+                                                        </div>
+                                                        <div class="modal-body d-flex flex-row">
+                                                            <div class="">
+                                                                <label class="h5">@lang('Category name')</label>
+                                                                    <input class="input-group-text" type="text" name="desc" id="desc">
+                                                                </label>
+                                                                <button type="submit" formtarget="addCategory" class="btn btn-sm btn-success my-2">@lang('Add')</button>
+                                                    </form>
+                                                            </div>
+                                                            <div class="listCategory ml-5 mt-4">
+                                                                @foreach ($categories as $category)
+                                                                <div id="list_category_btnDelete" class="row">
+                                                                    <form method="post" id="deleteCategory" action="{{ route('category.delete') }}">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <input type="hidden"  name="id"  value="{{ $category->id }}">
+                                                                        <button type="submit" formtarget="deleteCategory" class="btn btn-danger btn-sm my-1"><i class="ni ni-fat-remove"></i></button>
+                                                                        <span class="badge badge-info my-1">{{ $category->desc }}</span>
+                                                                    </form>
+                                                                </div>
+                                                                @endforeach
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer mt-3">
+                                                            <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">@lang('Close')</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-2 form-group{{ $errors->has('cep') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-cep">@lang('Cep')</label>
-                                        <input type="text" name="cep" id="input-cep" class="cep form-control form-control-alternative{{ $errors->has('cep') ? ' is-invalid' : '' }}" required>
-
-                                        @if ($errors->has('cep'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('cep') }}</strong>
-                                            </span>
-                                        @endif
+                                    <div class="col-6">
+                                        <label for="producCode" class="form-control-label" style="padding-top: 65px;">@lang('Product Code')</label>
+                                        <input type="text" class="form-control" id="producCode" placeholder="Ex: AB0000">
                                     </div>
-
                                 </div>
                                 <div class="row">
-
-                                    <div class="col-7 form-group{{ $errors->has('endereco') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-endereco">@lang('Address')</label>
-                                        <input type="text" name="endereco" id="input-endereco" class="form-control form-control-alternative{{ $errors->has('endereco') ? ' is-invalid' : '' }}" required>
-
-                                        @if ($errors->has('endereco'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('endereco') }}</strong>
-                                            </span>
-                                        @endif
+                                    <div class="col-3">
+                                        <label for="costPrice" class="form-control-label pt-3">@lang('Cost price')</label>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="costPrice">@lang('$')</span>
+                                            <input type="text" name="costPrice" id="costPrice" class="form-control pl-2" placeholder="0,00" aria-describedby="costPrice">
+                                        </div>
                                     </div>
-                                    <div class="col-2 form-group{{ $errors->has('numero') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-numero">@lang('Number')</label>
-                                        <input type="text" name="numero" id="input-numero" class="form-control form-control-alternative{{ $errors->has('numero') ? ' is-invalid' : '' }}" required>
-                                        @if ($errors->has('numero'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('numero') }}</strong>
-                                            </span>
-                                        @endif
+                                    <div class="col-3">
+                                        <label for="salePrice" class="form-control-label pt-3">@lang('Sale price')</label>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="salePrice">@lang('$')</span>
+                                            <input type="text" name="salePrice" id="salePrice" class="form-control pl-2" placeholder="0,00" aria-describedby="salePrice">
+                                        </div>
                                     </div>
-                                    <div class="col-2 form-group{{ $errors->has('complemento') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-complemento">@lang('Complemento')</label>
-                                        <input type="text" name="complemento" id="input-complemento" class="form-control form-control-alternative{{ $errors->has('complemento') ? ' is-invalid' : '' }}" >
-                                        @if ($errors->has('complemento'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('complemento') }}</strong>
-                                            </span>
-                                        @endif
+                                    <div class="col-3">
+                                        <label for="profitValue" class="form-control-label pt-3">@lang('Profit')</label>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="profitValue">@lang('$')</span>
+                                            <input type="text" disabled name="profitValue" id="profitValue" class="form-control pl-2" placeholder="0,00" aria-describedby="profitValue">
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <label for="profitPerc" class="form-control-label pt-3">@lang('Profit in %')</label>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="profitPerc">@lang('%')</span>
+                                            <input type="text" disabled name="profitPerc" id="profitPerc" class="form-control pl-2" placeholder="0,00" aria-describedby="profitPerc">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row d-flex justify-content-center">
-                                    <div class="col-4 form-group">
-                                        <button type="submit" class="btn btn-success mt-4">@lang('Save')</button>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <label for="quantity" class="form-control-label pt-3">@lang('Quantity')</label>
+                                        <div class="input-group mb-3">
+                                            <input type="number" name="quantity" id="quantity" class="form-control pl-2" placeholder="0,00" aria-describedby="quantity">
+                                            <span class="input-group-text" id="quantity">@lang('UN')</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <label for="barcode" class="form-control-label pt-3">@lang('Barcode')</label>
+                                        <div class="input-group mb-3">
+                                            <input type="number" name="barcode" id="barcode" class="form-control pl-2" placeholder="0000000" aria-describedby="barcode">
+                                        </div>
+                                    </div>
+                                    <div class="col-3 pl-3 pt-">
+                                        <label for="status" class="form-control-label pt-3">@lang('Status')</label>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="status" checked>
+                                            <label class="form-check-label" for="status">@lang('Active')</label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </form>
-                    </div> --}}
-
+                    </div>
                 </div>
             </div>
+
         </div>
         @include('layouts.footers.auth')
         <script>

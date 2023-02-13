@@ -6,6 +6,7 @@ use App\Http\Controllers\CidadeController;
 use App\Http\Controllers\EstadoController;
 use App\Http\Controllers\PacientController;
 use App\Http\Controllers\AnamnesiController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FinanceiroController;
 use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\PatologyController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\PePerfusaoController;
 use App\Http\Controllers\ObsProfissionalController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\ServicoController;
+use App\Models\Category;
 use App\Models\Fornecedor;
 
 /*
@@ -118,8 +120,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/financeiro/{financeiro}/edit', [FinanceiroController::class, 'edit'])->name('financeiro.edit');
     Route::delete('/financeiro/{financeiro}/delete', [FinanceiroController::class, 'destroy'])->name('financeiro.delete');
     Route::put('/financeiro/{financeiro}', [FinanceiroController::class, 'update'])->name('financeiro.update');
-// END FINANCEIRO-------------------------------------------------------------//
+    // END FINANCEIRO-------------------------------------------------------------//
 
+    // CATEGORY---------------------------------------------------------------------------------------//
+    Route::get('category', [CategoryController::class, 'show'])->name('category.name');
+    Route::post('/produto/create', [CategoryController::class, 'store'])->name('category.store');
+    Route::delete('/produto/create/', [CategoryController::class, 'destroy'])->name('category.delete');
+    // END CATEGORY----------------------------------------------------------------------------------//
 
     Route::resource('user', 'App\Http\Controllers\UserController', [
         'except' => ['show'],

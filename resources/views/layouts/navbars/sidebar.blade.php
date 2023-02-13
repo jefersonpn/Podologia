@@ -188,13 +188,13 @@
 
             <ul class="navbar-nav">
                 <li class="nav-item mb-2 mr-4 ml-3 pl-2 pt-2">
-                    <button class="btn btn-icon btn-3 btn-success" type="button">
+                    <button class="btn btn-sm btn-icon btn-3 btn-success" type="button">
                         <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
                         <span class="btn-inner--text">@lang('New Appointment')</span>
                     </button>
                 </li>
                 <li class="nav-item mb-2 mr-4 ml-3 pl-2">
-                    <button class="btn btn-icon btn-3 btn-info" type="button">
+                    <button class="btn btn-sm btn-icon btn-3 btn-info" type="button">
                         <span class="btn-inner--icon"><i class="ni ni-calendar-grid-58"></i></span>
                         <span class="btn-inner--text">@lang('Calendar')</span>
                     </button>

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Fornecedor;
 use Illuminate\Http\Request;
+use App\Http\Requests\CategoryRequest;
+use Symfony\Component\Console\Input\Input;
 
 class CategoryController extends Controller
 {
@@ -36,10 +39,21 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        Category::create($input);
+        //dd($input['desc']);
 
+        if (Category::where('desc', $input['desc'])->exists()) {
+            $categories = Category::all();
+            (session()->flash('success', null));
+            session()->flash('error', 'Categoria NÃO adicionada, já existe !');
+            return view('pages.product.create', compact('categories'));
+        }
+
+        Category::create($input);
+        $categories = Category::all();
+        $suppliers = Fornecedor::all();
+        (session()->flash('error', null));
         session()->flash('success', 'Categoria adicionada com sucesso!');
-        return redirect()->back();
+        return view('pages.product.create', compact('categories', 'suppliers'));
     }
 
     /**
@@ -85,8 +99,15 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Request $request, Category $category)
     {
-        //
+        // dd($request['id']);
+        Category::destroy($request['id']);
+
+        $categories = Category::all();
+        $suppliers = Fornecedor::all();
+        session()->flash('success', null);
+        session()->flash('error', 'Categoria Deletada!');
+        return view('pages.product.create', compact('categories', 'suppliers'));
     }
 }
